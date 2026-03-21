@@ -1,4 +1,4 @@
-# Nerfies
+# AcTTA
 
 This is the repository that contains source code for the [AcTTA website](https://hyeongyu-kim.github.io/actta/).
 
