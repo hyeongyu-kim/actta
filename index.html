@@ -62,7 +62,7 @@
     <div class="container is-max-desktop">
       <div class="columns is-centered">
         <div class="column has-text-centered">
-          <h1 class="title is-1 publication-title"><span style="color: #0066ff;">TWINGS</span>: <span style="color: #0066ff;">T</span>hin Plate Splines <span style="color: #0066ff;">W</span>arp-aligned <span style="color: #0066ff;">In</span>itialization for Sparse-View <span style="color: #0066ff;">G</span>aussian <span style="color: #0066ff;">S</span>platting</h1>
+          <h1 class="title is-1 publication-title"> AcTTA : Rethinking Test-Time Adaptation via Dynamic Activation </h1>
           <div class="is-size-5 publication-authors" style="font-weight: bold; color: #8B0000; margin-top: 0.5rem; margin-bottom: 1rem;">
             CVPR 2026
           </div>
@@ -102,7 +102,7 @@
               </span>
               <!-- Code Link. -->
               <span class="link-block">
-                <a href="https://github.com/sandokim/TWINGS-official"
+                <a href="https://github.com/hyeongyu-kim/actta/"
                    class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
                       <i class="fab fa-github"></i>
@@ -136,7 +136,13 @@
         <h2 class="title is-3">Abstract</h2>
         <div class="content has-text-justified">
           <p>
-            Novel view synthesis from sparse-view inputs poses a significant challenge in 3D computer vision, particularly for achieving high-quality scene reconstructions with limited viewpoints. We introduce <strong style="color: #0066ff;">TWINGS</strong>, a framework that enhances 3D Gaussian Splatting (3DGS) by directly addressing point sparsity. We employ Thin Plate Splines (TPS), a smooth non-rigid deformation model that minimizes bending energy to estimate a globally coherent warp from control-point correspondences, to align backprojected points from estimated depth with triangulated 3D control points, yielding calibrated backprojected points. By sampling these calibrated points near the control points, <strong style="color: #0066ff;">TWINGS</strong> provides a fast and geometrically accurate initialization for 3DGS, ultimately improving structural detail preservation and color fidelity in reconstructed scenes. Extensive experiments on DTU, LLFF, and Mip-NeRF360 demonstrate that <strong style="color: #0066ff;">TWINGS</strong> consistently outperforms existing methods, delivering detailed and accurate reconstructions under sparse-view scenarios.
+            Test-time adaptation (TTA) aims to mitigate performance degradation under distribution shifts by updating model parameters during inference.
+Existing approaches have primarily framed adaptation around affine modulation, focusing on recalibrating normalization layers. This perspective, while effective, overlooks another influential component in representation dynamics: \textbf{\textit{the activation function}}.
+We revisit this overlooked space and propose \textbf{\textit{AcTTA}}, an activation-aware framework that reinterprets conventional activation functions from a learnable perspective and updates them adaptively at test time.
+AcTTA reformulates conventional activation functions (e.g., ReLU, GELU) into parameterized forms that shift their response threshold and modulate gradient sensitivity, enabling the network to adjust activation behavior under domain shifts.
+This functional reparameterization enables continuous adjustment of activation behavior without modifying network weights or requiring source data.
+Despite its simplicity, AcTTA achieves robust and stable adaptation across diverse corruptions. Across CIFAR10-C, CIFAR100-C, and ImageNet-C, AcTTA consistently surpasses normalization-based TTA methods.
+Our findings highlight activation adaptation as a compact and effective route toward domain-shift–robust test-time learning, broadening the prevailing affine-centric view of adaptation.
           </p>
         </div>
       </div>
