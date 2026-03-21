@@ -1,38 +1,25 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
   <meta charset="utf-8">
-  <meta name="description"
-        content="AcTTA : Rethinking Test-Time Adaptation via Dynamic Activation">
-  <meta name="keywords" content="TTA, Activation, Test-Time Adaptation">
+  <meta name="description" content="AcTTA: Rethinking Test-Time Adaptation via Dynamic Activation">
+  <meta name="keywords" content="Test-Time Adaptation, TTA, Activation, Domain Shift, AcTTA">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>AcTTA : Rethinking Test-Time Adaptation via Dynamic Activation</title>
 
-  <!-- Global site tag (gtag.js) - Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
+  <title>AcTTA | Project Page</title>
 
-    function gtag() {
-      dataLayer.push(arguments);
-    }
-
-    gtag('js', new Date());
-
-    gtag('config', 'G-PYVRSFMDRL');
-  </script>
-
-  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
-        rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
 
   <link rel="stylesheet" href="./static/css/bulma.min.css">
   <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
   <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
   <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
-  <link rel="stylesheet"
-        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
   <link rel="stylesheet" href="./static/css/index.css">
-  <link rel="icon" href="./static/images/favicon.svg">
+
+  <!-- 브라우저 탭 아이콘 -->
+  <!-- 원하는 아이콘 파일을 static/images/favicon.png 로 넣어두면 됨 -->
+  <link rel="icon" type="image/png" href="./static/images/favicon.png">
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script defer src="./static/js/fontawesome.all.min.js"></script>
@@ -40,6 +27,7 @@
   <script src="./static/js/bulma-slider.min.js"></script>
   <script src="./static/js/index.js"></script>
 </head>
+
 <body>
 
 <nav class="navbar" role="navigation" aria-label="main navigation">
@@ -51,77 +39,99 @@
     </a>
   </div>
   <div class="navbar-menu">
-    <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
-    </div>
+    <div class="navbar-start" style="flex-grow: 1; justify-content: center;"></div>
   </div>
 </nav>
-
 
 <section class="hero">
   <div class="hero-body">
     <div class="container is-max-desktop">
       <div class="columns is-centered">
         <div class="column has-text-centered">
-          <h1 class="title is-1 publication-title"> AcTTA : Rethinking Test-Time Adaptation via Dynamic Activation </h1>
+
+          <h1 class="title is-1 publication-title">
+            AcTTA: Rethinking Test-Time Adaptation via Dynamic Activation
+          </h1>
+
           <div class="is-size-5 publication-authors" style="font-weight: bold; color: #8B0000; margin-top: 0.5rem; margin-bottom: 1rem;">
             CVPR 2026
           </div>
-          <div class="is-size-5 publication-authors">
-            <span class="author-block">
-              <a href="https://github.com/sandokim">Hyeongyu Kim</a><sup>1,*</sup>,</span>
-            <span class="author-block">
-              <a href="">Geonhui Han</a><sup>1,*</sup>,</span>
-            <span class="author-block">
-              <a href="">Dosik Hwang</a><sup>1</sup>†</span>
-          </div>
 
           <div class="is-size-5 publication-authors">
-            <span class="author-block"><sup>1</sup>Yonsei University,</span>
-          </div>
+          <span class="author-block">
+            <a href="https://github.com/sandokim" target="_blank">Hyeongyu Kim</a><sup>1,*</sup>,
+          </span>
+          <span class="author-block">
+            Geonhui Han<sup>1,*</sup>,
+          </span>
+          <span class="author-block">
+            Dosik Hwang<sup>1,2,†</sup>
+          </span>
+        </div>
+        
+        <div class="is-size-5 publication-authors" style="margin-top: 0.5rem;">
+          <span class="author-block"><sup>1</sup>Yonsei University</span>,
+          <span class="author-block"><sup>2</sup>Korea Institute of Science and Technology</span>
+        </div>
+        
+        <div class="is-size-6 publication-authors" style="margin-top: 0.5rem;">
+          <span class="author-block">{lion4309, hgh6945, dosik.hwang}@yonsei.ac.kr</span>
+        </div>
+        
+        <div class="is-size-6 publication-authors" style="margin-top: 0.4rem;">
+          <a href="https://hyeongyu-kim.github.io/actta/" target="_blank">
+            https://hyeongyu-kim.github.io/actta/
+          </a>
+        </div>
+        
+        <div class="is-size-7 publication-authors" style="margin-top: 0.5rem; color: #666;">
+          <span class="author-block">* Equal contribution</span><br>
+          <span class="author-block">† Corresponding author</span>
+        </div>
 
           <div class="column has-text-centered">
             <div class="publication-links">
-              <!-- PDF Link. -->
+
               <span class="link-block">
-                <a href=""
-                   class="external-link button is-normal is-rounded is-dark">
+                <span class="button is-normal is-rounded is-dark is-static">
                   <span class="icon">
-                      <i class="fas fa-file-pdf"></i>
+                    <i class="fas fa-file-pdf"></i>
                   </span>
-                  <span>Paper</span>
-                </a>
+                  <span>Paper Coming Soon</span>
+                </span>
               </span>
+
               <span class="link-block">
-                <a href=""
-                   class="external-link button is-normal is-rounded is-dark">
+                <span class="button is-normal is-rounded is-dark is-static">
                   <span class="icon">
-                      <i class="ai ai-arxiv"></i>
+                    <i class="ai ai-arxiv"></i>
                   </span>
-                  <span>arXiv</span>
-                </a>
+                  <span>arXiv Coming Soon</span>
+                </span>
               </span>
-              <!-- Code Link. -->
+
               <span class="link-block">
-                <a href="https://github.com/hyeongyu-kim/actta/"
+                <a href="https://github.com/hyeongyu-kim/actta/" target="_blank"
                    class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
-                      <i class="fab fa-github"></i>
+                    <i class="fab fa-github"></i>
                   </span>
                   <span>Code</span>
-                  </a>
-              </span>     
-              <!-- Video Link. -->
-              <span class="link-block">
-                <a href=""
-                   class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon">
-                      <i class="fab fa-youtube"></i>
-                  </span>
-                  <span>Video</span>
                 </a>
               </span>
+
+              <span class="link-block">
+                <span class="button is-normal is-rounded is-dark is-static">
+                  <span class="icon">
+                    <i class="fab fa-youtube"></i>
+                  </span>
+                  <span>Video Coming Soon</span>
+                </span>
+              </span>
+
             </div>
           </div>
+
         </div>
       </div>
     </div>
@@ -130,39 +140,30 @@
 
 <section class="section">
   <div class="container is-max-desktop">
-    <!-- Abstract. -->
     <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths">
         <h2 class="title is-3">Abstract</h2>
         <div class="content has-text-justified">
           <p>
             Test-time adaptation (TTA) aims to mitigate performance degradation under distribution shifts by updating model parameters during inference.
-Existing approaches have primarily framed adaptation around affine modulation, focusing on recalibrating normalization layers. This perspective, while effective, overlooks another influential component in representation dynamics: \textbf{\textit{the activation function}}.
-We revisit this overlooked space and propose \textbf{\textit{AcTTA}}, an activation-aware framework that reinterprets conventional activation functions from a learnable perspective and updates them adaptively at test time.
-AcTTA reformulates conventional activation functions (e.g., ReLU, GELU) into parameterized forms that shift their response threshold and modulate gradient sensitivity, enabling the network to adjust activation behavior under domain shifts.
-This functional reparameterization enables continuous adjustment of activation behavior without modifying network weights or requiring source data.
-Despite its simplicity, AcTTA achieves robust and stable adaptation across diverse corruptions. Across CIFAR10-C, CIFAR100-C, and ImageNet-C, AcTTA consistently surpasses normalization-based TTA methods.
-Our findings highlight activation adaptation as a compact and effective route toward domain-shift–robust test-time learning, broadening the prevailing affine-centric view of adaptation.
+            Existing approaches have primarily framed adaptation around affine modulation, focusing on recalibrating normalization layers.
+            This perspective, while effective, overlooks another influential component in representation dynamics:
+            <strong><em>the activation function</em></strong>.
           </p>
-        </div>
-      </div>
-    </div>
-    <!--/ Abstract. -->
-  </div>
-</section>
-
-<section class="section">
-  <div class="container is-max-desktop">
-    <div class="columns is-centered has-text-centered">
-      <div class="column is-four-fifths">
-        <div class="content has-text-centered">
-          <img src="./static/images/fig1.jpg"
-               alt="Problem visualization"
-               style="width: 100%; max-width: 100%; margin-bottom: 1rem;"/>
-        </div>
-        <div class="content has-text-justified">
           <p>
-            Visualization of 3D reconstructed points. Highly accurate 3D reconstructed points are required to constrain 3DGS.
+            We revisit this overlooked space and propose <strong><em>AcTTA</em></strong>, an activation-aware framework that reinterprets conventional
+            activation functions from a learnable perspective and updates them adaptively at test time.
+            AcTTA reformulates conventional activation functions (e.g., ReLU, GELU) into parameterized forms that shift their response threshold
+            and modulate gradient sensitivity, enabling the network to adjust activation behavior under domain shifts.
+          </p>
+          <p>
+            This functional reparameterization enables continuous adjustment of activation behavior without modifying network weights
+            or requiring source data. Despite its simplicity, AcTTA achieves robust and stable adaptation across diverse corruptions.
+            Across CIFAR10-C, CIFAR100-C, and ImageNet-C, AcTTA consistently surpasses normalization-based TTA methods.
+          </p>
+          <p>
+            Our findings highlight activation adaptation as a compact and effective route toward domain-shift-robust test-time learning,
+            broadening the prevailing affine-centric view of adaptation.
           </p>
         </div>
       </div>
@@ -172,99 +173,28 @@ Our findings highlight activation adaptation as a compact and effective route to
 
 <section class="section">
   <div class="container is-max-desktop">
-    <!-- Method. -->
     <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths">
-        <h2 class="title is-3">Method</h2>
+        <h2 class="title is-3">Coming Soon</h2>
         <div class="content has-text-centered">
-          <img src="./static/images/fig2.jpg"
-               alt="TWINGS Pipeline"
-               style="width: 100%; max-width: 100%; margin-bottom: 1rem;"/>
-        </div>
-        <div class="content has-text-justified">
           <p>
-            <strong>TWINGS Pipeline.</strong> Our method consists of three key components: <strong>Multi-view Correspondences</strong>: We establish multi-view correspondences among query and key images. Using correspondences with known camera parameters, we reconstruct 3D points that correspond to desired control points (<span style="color: #ff69b4;">pink</span>). By backprojecting the estimated depth, we generate backprojected points (<span style="color: #008000;">green</span>). <strong>TPS deformation:</strong> We define a TPS model that deforms the backprojected points to obtain TPS deformed points, which are referred to as CBP. <strong>CBPS:</strong> The CBP are then strategically sampled near desired control points (<span style="color: #ff69b4;">pink</span>) to initialize 3DGS training.
+            Additional contents including method details, experimental results, figures, BibTeX, and other resources will be released soon.
           </p>
         </div>
       </div>
     </div>
-    <!--/ Method. -->
-  </div>
-</section>
-
-<section class="section">
-  <div class="container is-max-desktop">
-    <!-- Results. -->
-    <div class="columns is-centered has-text-centered">
-      <div class="column is-four-fifths">
-        <h2 class="title is-3">Results</h2>
-        <div class="content has-text-centered">
-          <img src="./static/images/dtu_fig.jpg"
-               alt="DTU Results"
-               style="width: 100%; max-width: 100%; margin-bottom: 1rem;"/>
-        </div>
-        <div class="content has-text-justified" style="margin-bottom: 2rem;">
-          <p>
-            Qualitative results on the DTU dataset. Novel view synthesis results rendered by CoR-GS, DNGaussian, DropGaussian, our approach, and ground truth for comparison.
-          </p>
-        </div>
-        <div class="content has-text-centered">
-          <img src="./static/images/llff_fig.jpg"
-               alt="LLFF Results"
-               style="width: 100%; max-width: 100%; margin-bottom: 1rem;"/>
-        </div>
-        <div class="content has-text-justified" style="margin-bottom: 2rem;">
-          <p>
-            Qualitative results on the LLFF dataset. Novel view synthesis results rendered by CoR-GS, DropGaussian, CoMapGS, our approach, and ground truth for comparison.
-          </p>
-        </div>
-        <div class="content has-text-centered">
-          <img src="./static/images/mipnerf_fig.jpg"
-               alt="Mip-NeRF360 Results"
-               style="width: 100%; max-width: 100%; margin-bottom: 1rem;"/>
-        </div>
-        <div class="content has-text-justified">
-          <p>
-            Qualitative results on the LLFF dataset. Novel view synthesis results rendered by CoR-GS, DropGaussian, CoMapGS, our approach, and ground truth for comparison.
-          </p>
-        </div>
-      </div>
-    </div>
-    <!--/ Results. -->
-  </div>
-</section>
-
-<section class="section" id="BibTeX">
-  <div class="container is-max-desktop content">
-    <h2 class="title">BibTeX</h2>
-    <pre><code>@inproceedings{hyeseongkim2026twings,
-    title = {TWINGS: Thin Plate Splines Warp-aligned Initialization for Sparse-View Gaussian Splatting},
-    author = {Hyeseong Kim, Geonhui Son, Deukhee Lee, Dosik Hwang},
-    booktitle = {CVPR},
-    year = {2026}
-}</code></pre>
   </div>
 </section>
 
 <footer class="footer">
   <div class="container">
-    <div class="columns is-centered">
-      <div class="column is-8">
-        <div class="content">
-          <h2 class="title is-4">Acknowledgment</h2>
-          <p>
-            This website is licensed under a <a rel="license"
-                                                href="https://creativecommons.org/licenses/by-sa/4.0/">Creative
-            Commons Attribution-ShareAlike 4.0 International License</a>.
-          </p>
-          <p>
-            This means you are free to borrow the <a
-              href="https://github.com/nerfies/nerfies.github.io">source code</a> of this website,
-            we just ask that you link back to the <a
-              href="https://github.com/nerfies/nerfies.github.io">original page</a> in the footer.
-          </p>
-        </div>
-      </div>
+    <div class="content has-text-centered">
+      <p>
+        © 2026 AcTTA Project Page
+      </p>
+      <p>
+        Website template adapted from publicly available academic project page templates.
+      </p>
     </div>
   </div>
 </footer>
