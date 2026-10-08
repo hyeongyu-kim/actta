@@ -1,0 +1,12 @@
+[
+  {
+    "path": "reference/data/imagenet_test_image_ids.txt",
+    "original": "activation_bs/robustbench/data/imagenet_test_image_ids.txt",
+    "sha256": "41859fb6c645b32e24c698de00fd5867d7a25c886ddc41e78eaa087cb75e41a2"
+  },
+  {
+    "path": "reference/data/imagenet_class_to_id_map.json",
+    "original": "activation_bs/robustbench/data/imagenet_class_to_id_map.json",
+    "sha256": "b1c9c3a901b0910ac844cabe252e7fe4b29b2660a4fbc448cb82f4e7e122b2d5"
+  }
+]

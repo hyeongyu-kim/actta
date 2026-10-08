@@ -1,0 +1,6 @@
+{
+  "timm_pretrained_true_local_official_checkpoint_vs_pretrained_false_strict_load_all_state_tensors_bitwise_equal": true,
+  "post_construction_rng_states_equal": true,
+  "rng_state_sha256": "3107e9a87120b10af2989120152f844163edfcb56b248ada89f408af6d95c085",
+  "tested_timm_version": "1.0.15"
+}

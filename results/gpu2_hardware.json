@@ -1,0 +1,8 @@
+{
+  "physical_gpu_index": 2,
+  "name": "NVIDIA RTX A6000",
+  "driver_version": "535.230.02",
+  "memory_total_mib": 49140,
+  "cuda_visible_devices": "2",
+  "shared_with_preexisting_job": true
+}

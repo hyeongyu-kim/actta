@@ -1,0 +1,8 @@
+{
+  "new_zero_depth_error_percent": 62.104000000000006,
+  "previous_source_error_percent": 62.104000000000006,
+  "all_15_corruption_errors_exactly_match": true,
+  "input_order_differs": true,
+  "same_checkpoint": true,
+  "no_optimizer_at_zero": true
+}

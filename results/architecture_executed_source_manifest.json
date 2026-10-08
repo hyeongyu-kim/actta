@@ -1,0 +1,77 @@
+{
+  "captured_before_first_full_run": true,
+  "files": [
+    {
+      "path": "evaluate_architecture.py",
+      "sha256": "b9e439b54685f23ebda8af1e53e779edc7364a7063682323dfa84823e5bd1a05"
+    },
+    {
+      "path": "actta/architecture_audit.py",
+      "sha256": "f962d669b3cd1362d5c814e74b43477823d41ba16fa18648e9465bd81fce909b"
+    },
+    {
+      "path": "actta/activation.py",
+      "sha256": "868aa76341c77ec2e4a4e66c4dd869cffb3ae2040a2f8c5ef4d67effecb7a0cc"
+    },
+    {
+      "path": "actta/adaptation.py",
+      "sha256": "e7ba91c783d6b05dd6be1e414d05d0ffd5a0f65c43614868754c1b524310c287"
+    },
+    {
+      "path": "actta/imagenet.py",
+      "sha256": "73125382a8b6c0f84b39c4b229d87fe6b959f8f151dbdff4e68cd0fafe18d944"
+    },
+    {
+      "path": "actta/data.py",
+      "sha256": "d524724f845689a01b106e980f09036d7f2607bdf7a3646ecef30d25975d79ff"
+    },
+    {
+      "path": "actta/__init__.py",
+      "sha256": "2ba010228818030402abcb490933fad68baaa345af2e770d82bcb5eb3bb2a336"
+    },
+    {
+      "path": "reference/data/imagenet_test_image_ids.txt",
+      "sha256": "41859fb6c645b32e24c698de00fd5867d7a25c886ddc41e78eaa087cb75e41a2"
+    },
+    {
+      "path": "reference/data/imagenet_class_to_id_map.json",
+      "sha256": "b1c9c3a901b0910ac844cabe252e7fe4b29b2660a4fbc448cb82f4e7e122b2d5"
+    },
+    {
+      "path": "configs/audit_resnet50_calls25.yaml",
+      "sha256": "9fc562df3754f799d142f973646ef93ddeeca94751620aecd452e3c0f62c8485"
+    },
+    {
+      "path": "configs/audit_resnet50_legacy_nesterov.yaml",
+      "sha256": "a89736286916e6e50b997557b045a9f33b8689721ee822513df02ee9ab515124"
+    },
+    {
+      "path": "configs/audit_vit_b16_blocks6_depth_ablation.yaml",
+      "sha256": "f9d101ed1baa067b0da84ec8553dff16f484897530bc3be851ae93009b91c631"
+    },
+    {
+      "path": "configs/audit_vit_b16_blocks6_joint_ln.yaml",
+      "sha256": "a2eff422f4ec5c78eea71e1c631b43995e364564258b47e8622be506f5f8fb78"
+    },
+    {
+      "path": "configs/audit_vit_b16_blocks6_joint_ln_exact_gelu.yaml",
+      "sha256": "e226a33d6ef6612b64b1894fe255afee1150e25b7720592cb32f279c9c9e828b"
+    },
+    {
+      "path": "configs/audit_resnet50_calls25_main_lr.yaml",
+      "sha256": "113e0573918f827edf770ffb26ca01211074fac4d1db9d40281263885f36133d"
+    },
+    {
+      "path": "configs/audit_vit_b16_blocks6_joint_ln_plain_sgd.yaml",
+      "sha256": "567ca339078888162b02ffc2e2e3dba81ac04bbadf7f268cff4dd012f189d71c"
+    },
+    {
+      "path": "configs/audit_vit_b16_blocks6_joint_ln_archived_lr.yaml",
+      "sha256": "f7823c60e785bb12b340004cb5db638702a61987ecc66c8b01ef8a3ccf180458"
+    }
+  ],
+  "captured_before_exact_gelu_run": true,
+  "captured_before_resnet_main_combination_run": true,
+  "captured_before_plain_sgd_pair": true,
+  "captured_before_archived_vit_lr_case": true
+}

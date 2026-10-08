@@ -1,0 +1,21 @@
+{
+  "purpose": "Post-evaluation release workflow; inference source is frozen separately in depth_sweep_executed_source_manifest.json",
+  "files": [
+    {
+      "path": "scripts/reproduce_depth_sweep.sh",
+      "sha256": "2ac96970a70992ccad96d97b20c7824af6a63624690478471d11979e40666b5a"
+    },
+    {
+      "path": "requirements-depth-sweep.txt",
+      "sha256": "8a6791ff23d2ea0c2a00f084cec7b046e299bdb45b064c2ab0cdbc1de4345c10"
+    },
+    {
+      "path": "tools/summarize_depth_sweep.py",
+      "sha256": "0cde0a6543763342cd5bba3344719759b5596e15352e03ffe0c134684c7381e6"
+    },
+    {
+      "path": "tools/plot_depth_sweep.py",
+      "sha256": "349f4494466a76e099e8ebc9240e091e702ce687da1b50d11b3efd4ac223c1c8"
+    }
+  ]
+}

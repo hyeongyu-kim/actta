@@ -1,0 +1,20 @@
+architecture: resnet50
+weights: IMAGENET1K_V1
+checkpoint_sha256: 0676ba61b6795bbe1773cffd859882e5e297624d384b6993f7c9e683e722fb8a
+batch_size: 128
+selection_mode: first_activation_calls
+activation_count: 25
+adapt_norm: false
+momentum: 0.9
+nesterov: true
+dampening: 0.0
+weight_decay: 0.0
+lr: {source: 0.0, tent: 0.00025, actta_tent: 0.0025}
+cudnn_benchmark: true
+provenance: activation_bs/run_hgh.sh and test_time_hgh.py
+status: recovered_depth_ablation_candidate_not_certified_main_table
+nominal_depth_percent: 50
+depth_profile: archived_norm_frozen
+zero_depth_policy: no_optimizer_keep_target_BN_statistics_or_fixed_LN
+shuffle: false
+input_order_policy: original_hgh_image_id_file_order

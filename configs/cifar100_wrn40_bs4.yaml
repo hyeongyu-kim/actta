@@ -1,0 +1,15 @@
+# Candidate settings recovered from local commands; see docs/REPRODUCIBILITY.md.
+dataset: cifar100_c
+architecture: Hendrycks2020AugMix_WRN
+batch_size: 4
+optimizer: Adam
+lr:
+  source: 0.0
+  tent: 0.0001
+  actta_tent: 0.001
+activation_prefixes:
+- block1
+- block2
+share: channel
+cudnn_benchmark: true
+status: candidate_not_full_benchmark_verified

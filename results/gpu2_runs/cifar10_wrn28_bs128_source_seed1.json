@@ -1,0 +1,153 @@
+{
+  "method": "source",
+  "dataset": "cifar10_c",
+  "architecture": "Standard",
+  "seed": 1,
+  "batch_size": 128,
+  "lr": 0.0,
+  "setting": "reset_each_shift",
+  "severity": 5,
+  "device": "cuda",
+  "torch_version": "2.2.1",
+  "numpy_version": "1.26.4",
+  "cudnn_version": 8902,
+  "cuda_version": "12.1",
+  "shuffle": true,
+  "legacy_rng_preamble": true,
+  "preamble_draw": 0.7576315999031067,
+  "started_at_utc": "2026-10-08T07:35:15.376219+00:00",
+  "cuda_visible_devices": "2",
+  "gpu_name": "NVIDIA RTX A6000",
+  "activation_manifest": [],
+  "trainable_parameters": {},
+  "config": {
+    "dataset": "cifar10_c",
+    "architecture": "Standard",
+    "batch_size": 128,
+    "optimizer": "Adam",
+    "lr": {
+      "source": 0.0,
+      "tent": 0.001,
+      "actta_tent": 0.01
+    },
+    "activation_prefixes": [
+      "block1"
+    ],
+    "share": "channel",
+    "cudnn_benchmark": true,
+    "status": "candidate_not_full_benchmark_verified"
+  },
+  "checkpoint_sha256": "6ed1c75dad63e8ebdbef365020dd1a7eee5e79cf8a1438bd3bdc3b9c7aab3d44",
+  "per_corruption": [
+    {
+      "corruption": "gaussian_noise",
+      "samples": 10000,
+      "error_percent": 72.32000000000001,
+      "sample_order_sha256": "d010272c99d265c296842b76c66d08f9f634928200a420fa110d358739a3fc2d",
+      "seconds": 8.882024066522717
+    },
+    {
+      "corruption": "shot_noise",
+      "samples": 10000,
+      "error_percent": 65.72,
+      "sample_order_sha256": "eefcea7031c67a1691209e198037a5e25dffc37c6dfb246374075910219ae842",
+      "seconds": 7.460709786042571
+    },
+    {
+      "corruption": "impulse_noise",
+      "samples": 10000,
+      "error_percent": 72.92,
+      "sample_order_sha256": "169e080af81904d811da4425c63e94e6531e1eddbfd26cce3e7718d53416f7bb",
+      "seconds": 7.438614439219236
+    },
+    {
+      "corruption": "defocus_blur",
+      "samples": 10000,
+      "error_percent": 46.95,
+      "sample_order_sha256": "a6c870fd68a6b9479643ed49fa3bfa0c876a8d4ca72f8ae42cf87d0e7b431084",
+      "seconds": 7.465567143633962
+    },
+    {
+      "corruption": "glass_blur",
+      "samples": 10000,
+      "error_percent": 54.32,
+      "sample_order_sha256": "5e363e68e7a8c47f587b4936a2912869c17ac40169b6ef80d56e4ab612593c69",
+      "seconds": 6.9545143991708755
+    },
+    {
+      "corruption": "motion_blur",
+      "samples": 10000,
+      "error_percent": 34.75,
+      "sample_order_sha256": "95e8cb85df4f5a6555f4bc185241578c17cd9c648d71a6d393c8dac7090de8a2",
+      "seconds": 7.504343055188656
+    },
+    {
+      "corruption": "zoom_blur",
+      "samples": 10000,
+      "error_percent": 42.02,
+      "sample_order_sha256": "8b16c18727dee69c210bafc4c0c8c31de8239b62b688f322070bf82e3b83f8fa",
+      "seconds": 7.536385916173458
+    },
+    {
+      "corruption": "snow",
+      "samples": 10000,
+      "error_percent": 25.09,
+      "sample_order_sha256": "79687a6858ee4b281b5c036690d9a6bbceb945a2dfa5fade6b0ff9ef9ee0dc86",
+      "seconds": 7.498136606067419
+    },
+    {
+      "corruption": "frost",
+      "samples": 10000,
+      "error_percent": 41.32,
+      "sample_order_sha256": "313a9dd78fbf47c83b7b76b4a48c50cd2e44117fecbe3e1f1eaafb4a78674d6f",
+      "seconds": 7.564017411321402
+    },
+    {
+      "corruption": "fog",
+      "samples": 10000,
+      "error_percent": 26.0,
+      "sample_order_sha256": "e867ad92a1b62c2909bc9fde101cb32ffba7fc8b4b3d4f466afb420d5d3af028",
+      "seconds": 7.526688352227211
+    },
+    {
+      "corruption": "brightness",
+      "samples": 10000,
+      "error_percent": 9.309999999999995,
+      "sample_order_sha256": "35a89565bfa297747eec25ec96075badff73bc6aeaf1632849ef2b4f97522c10",
+      "seconds": 6.898607634007931
+    },
+    {
+      "corruption": "contrast",
+      "samples": 10000,
+      "error_percent": 46.709999999999994,
+      "sample_order_sha256": "2a3dd06ce6949a76a62e6ef7237329d46a226c09f76baa35059db329bd9c9e2f",
+      "seconds": 7.491740757599473
+    },
+    {
+      "corruption": "elastic_transform",
+      "samples": 10000,
+      "error_percent": 26.580000000000005,
+      "sample_order_sha256": "e982b828aeddd70c4d45c524225ce2a73d7e0d9539a065f80f4fd8866d8b39b2",
+      "seconds": 7.423193169757724
+    },
+    {
+      "corruption": "pixelate",
+      "samples": 10000,
+      "error_percent": 58.440000000000005,
+      "sample_order_sha256": "26f8ca592e0069ec396eabc855459b7be956f51fe88dbcf08b0414153294d437",
+      "seconds": 7.443435223773122
+    },
+    {
+      "corruption": "jpeg_compression",
+      "samples": 10000,
+      "error_percent": 30.300000000000004,
+      "sample_order_sha256": "0ba419595a4d664c1967f114c235c92a3a1e875ab382a77201866a78b1237de5",
+      "seconds": 7.445936270058155
+    }
+  ],
+  "complete": true,
+  "scope": "full_benchmark",
+  "completed_at_utc": "2026-10-08T07:37:07.955535+00:00",
+  "evaluation_seconds": 112.53391423076391,
+  "mean_error_percent": 43.51666666666667
+}

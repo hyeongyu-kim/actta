@@ -1,0 +1,18 @@
+# Preserve recorded SHA-256 checksums across checkout platforms.
+/.gitattributes -text
+/.gitignore -text
+/README.md -text
+/CITATION.cff -text
+/LICENSE -text
+/THIRD_PARTY.md -text
+/evaluate*.py -text
+/requirements*.txt -text
+/actta/** -text
+/configs/** -text
+/docs/** -text
+/reference/** -text
+/results/** -text
+/scripts/** -text
+/tests/** -text
+/tools/** -text
+/vendor/** -text

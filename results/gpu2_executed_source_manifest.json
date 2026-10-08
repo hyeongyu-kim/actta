@@ -1,0 +1,102 @@
+[
+  {
+    "path": "actta/__init__.py",
+    "sha256": "2ba010228818030402abcb490933fad68baaa345af2e770d82bcb5eb3bb2a336"
+  },
+  {
+    "path": "actta/activation.py",
+    "sha256": "868aa76341c77ec2e4a4e66c4dd869cffb3ae2040a2f8c5ef4d67effecb7a0cc"
+  },
+  {
+    "path": "actta/adaptation.py",
+    "sha256": "e7ba91c783d6b05dd6be1e414d05d0ffd5a0f65c43614868754c1b524310c287"
+  },
+  {
+    "path": "actta/data.py",
+    "sha256": "d524724f845689a01b106e980f09036d7f2607bdf7a3646ecef30d25975d79ff"
+  },
+  {
+    "path": "actta/models.py",
+    "sha256": "23dc2a0b5db8bbc8b45315764fdcad0521f385eca52af25e313887fcd498f025"
+  },
+  {
+    "path": "evaluate.py",
+    "sha256": "148b456c93fb8c222483bb4612a6cb03edf5f22d40e428e1945f47cdeaf61e58"
+  },
+  {
+    "path": "reference/methods/cmf.py",
+    "sha256": "50f9978fa299e4eff5183c57dc20925a5efaaef80fbb90e079da3ea309617606"
+  },
+  {
+    "path": "reference/methods/cmf_gs.py",
+    "sha256": "f2d7bca52becdbb80a7b6b2cc449358f50c0bb95dc9a876eac3570fc18518cb3"
+  },
+  {
+    "path": "reference/methods/deyo.py",
+    "sha256": "f62d9bcb56f703ff7e1784571ad95b0393a187835f2296683d799ffe3443a5d0"
+  },
+  {
+    "path": "reference/methods/deyo_gs.py",
+    "sha256": "51e4c3cc1a8c8cb8e3b0946b39069a84260374420246c2b2a884c4f0dcbc3092"
+  },
+  {
+    "path": "reference/methods/eata.py",
+    "sha256": "1515b830799476bc4b60d87cd6b44caaed907e7dcc066458a0d92da730a33f3e"
+  },
+  {
+    "path": "reference/methods/eata_gs.py",
+    "sha256": "af60b5431e73258beeb3343eadeab9dc51c339b25e1d108cefcbd5036259c16a"
+  },
+  {
+    "path": "reference/methods/roid.py",
+    "sha256": "426408a2fdd8371c92771df81b253321f2bfa0f69f4c1c97d2680903b01c86f2"
+  },
+  {
+    "path": "reference/methods/roid_gs.py",
+    "sha256": "fda1e32d6099acf12c1e5fe90e3e58f0ba0c1561544c8509cba151c3eb77134f"
+  },
+  {
+    "path": "reference/methods/sar.py",
+    "sha256": "af4eb8e09fe1cf0709f1c2e0d3d72f36380421ae139e916b7e947c87ce684910"
+  },
+  {
+    "path": "reference/methods/sar_gs.py",
+    "sha256": "25f02b3fffcfee1ea3f807e515f7f85511b8d4d53f82e02c962592beadc8f97f"
+  },
+  {
+    "path": "reference/methods/tent.py",
+    "sha256": "b0fcebc02391ef6bec9493ad7539fa7dadb6977ac0d208e7fb8491b6e14709da"
+  },
+  {
+    "path": "reference/methods/tent_gs.py",
+    "sha256": "6694fc84a1eca1f694e00eee18e39885f1948783cc2e9d227694f3b6cd13761d"
+  },
+  {
+    "path": "reference/models/gs_model.py",
+    "sha256": "b08a62b6e430f0a0204ca034fbf077ed9ad3d42583d2e6bfc9d3be8dbf39e2da"
+  },
+  {
+    "path": "tests/test_core.py",
+    "sha256": "9c937225e1bba56318d6732d9ff8c347943a1b6645c75c220c9e7b1b137434fe"
+  },
+  {
+    "path": "tools/aggregate_results.py",
+    "sha256": "809d7f4de228463ed0adca89e07adf4ae31e0bad17f1dfbd533956db4b8818e7"
+  },
+  {
+    "path": "tools/summarize_logs.py",
+    "sha256": "a9f212d439485570857b12ead801105ef48f82cc39bdcbed4b8ea5ee9f4fb6c3"
+  },
+  {
+    "path": "vendor/__init__.py",
+    "sha256": "9a1a7b286b7496a2a7e8e965c2e9459b267108bd342f426adcfd45886215efc0"
+  },
+  {
+    "path": "vendor/resnext.py",
+    "sha256": "2a31ac0b49c14e97380f686ce827887307f4fb8ece65b41b3869c0ec2824e047"
+  },
+  {
+    "path": "vendor/wide_resnet.py",
+    "sha256": "e3904c6e8893f1e11b7a315e61bf371cc29e8927f08163029db4e618e058d0e6"
+  }
+]

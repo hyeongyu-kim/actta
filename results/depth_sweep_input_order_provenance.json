@@ -1,0 +1,42 @@
+{
+  "original_hgh_shuffle": false,
+  "original_main_shuffle": true,
+  "internal_dataset_shuffle": false,
+  "original_dataset_metadata_byte_equal": true,
+  "all_5000_original_sample_paths_labels_match": true,
+  "ordered_full_digest": "a3d44437f284b46e5d827df6101e63efe16f752040ad67db809c061bc367bde5",
+  "source_files": [
+    {
+      "path": "reference/depth_sweep_order/datasets/corruptions_datasets.py",
+      "sha256": "f3b2e7bc0a5223c50d7f57a026d042373c81030f1f657c140d71fe2116226ba7",
+      "original_relative_path": "datasets/corruptions_datasets.py"
+    },
+    {
+      "path": "reference/depth_sweep_order/datasets/data_loading.py",
+      "sha256": "04a43c08a8b9e3cdec346578bb538a75ffb14a9a6cde2f125e8a656e30509dab",
+      "original_relative_path": "datasets/data_loading.py"
+    },
+    {
+      "path": "reference/depth_sweep_order/robustbench/data.py",
+      "sha256": "54031d5a60635e8331199eb1c7c82ad226abdaf763256288f78b4b06d8d3d26a",
+      "original_relative_path": "robustbench/data.py"
+    },
+    {
+      "path": "reference/depth_sweep_order/robustbench/loaders.py",
+      "sha256": "bfe1c1435762d86457d5e65b5d9fbb6959faacb5e0b7d6c15db1427cf301cafa",
+      "original_relative_path": "robustbench/loaders.py"
+    },
+    {
+      "path": "reference/depth_sweep_order/test_time.py",
+      "sha256": "fd7215393ed382fbdf20b38f81fe016b3ca68f835e03fd438f5d21e130eb3e0b",
+      "original_relative_path": "test_time.py"
+    },
+    {
+      "path": "reference/depth_sweep_order/test_time_hgh.py",
+      "sha256": "44a0dae515a4dc0c276648e8252024a5d8595e5e8db8774738d102f11d1607f8",
+      "original_relative_path": "test_time_hgh.py"
+    }
+  ],
+  "initial_completed_shuffled_points_retained": 5,
+  "initial_partial_vit0_excluded": true
+}

@@ -1,0 +1,21 @@
+architecture: vit_base_patch16_224.orig_in21k_ft_in1k
+weights: orig_in21k_ft_in1k
+checkpoint_sha256: 80ecf9dd5e3a58895e959af554c5666c4e7b4da4410de4f1f2b0025e93435d8c
+batch_size: 128
+selection_mode: first_transformer_blocks
+activation_blocks: 1
+adapt_norm: false
+gelu_approximation: tanh
+momentum: 0.9
+nesterov: true
+dampening: 0.0
+weight_decay: 0.0
+lr: {source: 0.0, tent: 0.001, actta_tent: 0.0025}
+cudnn_benchmark: true
+provenance: activation_bs/run_hgh.sh line 20
+status: recovered_depth_ablation_command_not_paper_joint_LN_main_default
+nominal_depth_percent: 10
+depth_profile: archived_norm_frozen
+zero_depth_policy: no_optimizer_keep_target_BN_statistics_or_fixed_LN
+shuffle: false
+input_order_policy: original_hgh_image_id_file_order

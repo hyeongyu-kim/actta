@@ -1,0 +1,372 @@
+{
+  "method": "actta_tent",
+  "dataset": "cifar100_c",
+  "architecture": "Hendrycks2020AugMix_WRN",
+  "seed": 1,
+  "batch_size": 128,
+  "lr": 0.01,
+  "setting": "reset_each_shift",
+  "severity": 5,
+  "device": "cuda",
+  "torch_version": "2.2.1",
+  "numpy_version": "1.26.4",
+  "cudnn_version": 8902,
+  "cuda_version": "12.1",
+  "shuffle": true,
+  "legacy_rng_preamble": true,
+  "preamble_draw": 0.7576315999031067,
+  "started_at_utc": "2026-10-08T07:48:19.100953+00:00",
+  "cuda_visible_devices": "2",
+  "gpu_name": "NVIDIA RTX A6000",
+  "activation_manifest": [
+    {
+      "path": "block1.layer.0.relu1",
+      "channels": 16,
+      "preset": "relu",
+      "share": "channel"
+    },
+    {
+      "path": "block1.layer.0.relu2",
+      "channels": 32,
+      "preset": "relu",
+      "share": "channel"
+    },
+    {
+      "path": "block1.layer.1.relu1",
+      "channels": 32,
+      "preset": "relu",
+      "share": "channel"
+    },
+    {
+      "path": "block1.layer.1.relu2",
+      "channels": 32,
+      "preset": "relu",
+      "share": "channel"
+    },
+    {
+      "path": "block1.layer.2.relu1",
+      "channels": 32,
+      "preset": "relu",
+      "share": "channel"
+    },
+    {
+      "path": "block1.layer.2.relu2",
+      "channels": 32,
+      "preset": "relu",
+      "share": "channel"
+    },
+    {
+      "path": "block1.layer.3.relu1",
+      "channels": 32,
+      "preset": "relu",
+      "share": "channel"
+    },
+    {
+      "path": "block1.layer.3.relu2",
+      "channels": 32,
+      "preset": "relu",
+      "share": "channel"
+    },
+    {
+      "path": "block1.layer.4.relu1",
+      "channels": 32,
+      "preset": "relu",
+      "share": "channel"
+    },
+    {
+      "path": "block1.layer.4.relu2",
+      "channels": 32,
+      "preset": "relu",
+      "share": "channel"
+    },
+    {
+      "path": "block1.layer.5.relu1",
+      "channels": 32,
+      "preset": "relu",
+      "share": "channel"
+    },
+    {
+      "path": "block1.layer.5.relu2",
+      "channels": 32,
+      "preset": "relu",
+      "share": "channel"
+    },
+    {
+      "path": "block2.layer.0.relu1",
+      "channels": 32,
+      "preset": "relu",
+      "share": "channel"
+    },
+    {
+      "path": "block2.layer.0.relu2",
+      "channels": 64,
+      "preset": "relu",
+      "share": "channel"
+    },
+    {
+      "path": "block2.layer.1.relu1",
+      "channels": 64,
+      "preset": "relu",
+      "share": "channel"
+    },
+    {
+      "path": "block2.layer.1.relu2",
+      "channels": 64,
+      "preset": "relu",
+      "share": "channel"
+    },
+    {
+      "path": "block2.layer.2.relu1",
+      "channels": 64,
+      "preset": "relu",
+      "share": "channel"
+    },
+    {
+      "path": "block2.layer.2.relu2",
+      "channels": 64,
+      "preset": "relu",
+      "share": "channel"
+    },
+    {
+      "path": "block2.layer.3.relu1",
+      "channels": 64,
+      "preset": "relu",
+      "share": "channel"
+    },
+    {
+      "path": "block2.layer.3.relu2",
+      "channels": 64,
+      "preset": "relu",
+      "share": "channel"
+    },
+    {
+      "path": "block2.layer.4.relu1",
+      "channels": 64,
+      "preset": "relu",
+      "share": "channel"
+    },
+    {
+      "path": "block2.layer.4.relu2",
+      "channels": 64,
+      "preset": "relu",
+      "share": "channel"
+    },
+    {
+      "path": "block2.layer.5.relu1",
+      "channels": 64,
+      "preset": "relu",
+      "share": "channel"
+    },
+    {
+      "path": "block2.layer.5.relu2",
+      "channels": 64,
+      "preset": "relu",
+      "share": "channel"
+    }
+  ],
+  "trainable_parameters": {
+    "block1.layer.0.relu1.neg_gsL": 16,
+    "block1.layer.0.relu1.pos_gsL": 16,
+    "block1.layer.0.relu1.shift_gsL": 16,
+    "block1.layer.0.relu2.neg_gsL": 32,
+    "block1.layer.0.relu2.pos_gsL": 32,
+    "block1.layer.0.relu2.shift_gsL": 32,
+    "block1.layer.1.relu1.neg_gsL": 32,
+    "block1.layer.1.relu1.pos_gsL": 32,
+    "block1.layer.1.relu1.shift_gsL": 32,
+    "block1.layer.1.relu2.neg_gsL": 32,
+    "block1.layer.1.relu2.pos_gsL": 32,
+    "block1.layer.1.relu2.shift_gsL": 32,
+    "block1.layer.2.relu1.neg_gsL": 32,
+    "block1.layer.2.relu1.pos_gsL": 32,
+    "block1.layer.2.relu1.shift_gsL": 32,
+    "block1.layer.2.relu2.neg_gsL": 32,
+    "block1.layer.2.relu2.pos_gsL": 32,
+    "block1.layer.2.relu2.shift_gsL": 32,
+    "block1.layer.3.relu1.neg_gsL": 32,
+    "block1.layer.3.relu1.pos_gsL": 32,
+    "block1.layer.3.relu1.shift_gsL": 32,
+    "block1.layer.3.relu2.neg_gsL": 32,
+    "block1.layer.3.relu2.pos_gsL": 32,
+    "block1.layer.3.relu2.shift_gsL": 32,
+    "block1.layer.4.relu1.neg_gsL": 32,
+    "block1.layer.4.relu1.pos_gsL": 32,
+    "block1.layer.4.relu1.shift_gsL": 32,
+    "block1.layer.4.relu2.neg_gsL": 32,
+    "block1.layer.4.relu2.pos_gsL": 32,
+    "block1.layer.4.relu2.shift_gsL": 32,
+    "block1.layer.5.relu1.neg_gsL": 32,
+    "block1.layer.5.relu1.pos_gsL": 32,
+    "block1.layer.5.relu1.shift_gsL": 32,
+    "block1.layer.5.relu2.neg_gsL": 32,
+    "block1.layer.5.relu2.pos_gsL": 32,
+    "block1.layer.5.relu2.shift_gsL": 32,
+    "block2.layer.0.relu1.neg_gsL": 32,
+    "block2.layer.0.relu1.pos_gsL": 32,
+    "block2.layer.0.relu1.shift_gsL": 32,
+    "block2.layer.0.relu2.neg_gsL": 64,
+    "block2.layer.0.relu2.pos_gsL": 64,
+    "block2.layer.0.relu2.shift_gsL": 64,
+    "block2.layer.1.relu1.neg_gsL": 64,
+    "block2.layer.1.relu1.pos_gsL": 64,
+    "block2.layer.1.relu1.shift_gsL": 64,
+    "block2.layer.1.relu2.neg_gsL": 64,
+    "block2.layer.1.relu2.pos_gsL": 64,
+    "block2.layer.1.relu2.shift_gsL": 64,
+    "block2.layer.2.relu1.neg_gsL": 64,
+    "block2.layer.2.relu1.pos_gsL": 64,
+    "block2.layer.2.relu1.shift_gsL": 64,
+    "block2.layer.2.relu2.neg_gsL": 64,
+    "block2.layer.2.relu2.pos_gsL": 64,
+    "block2.layer.2.relu2.shift_gsL": 64,
+    "block2.layer.3.relu1.neg_gsL": 64,
+    "block2.layer.3.relu1.pos_gsL": 64,
+    "block2.layer.3.relu1.shift_gsL": 64,
+    "block2.layer.3.relu2.neg_gsL": 64,
+    "block2.layer.3.relu2.pos_gsL": 64,
+    "block2.layer.3.relu2.shift_gsL": 64,
+    "block2.layer.4.relu1.neg_gsL": 64,
+    "block2.layer.4.relu1.pos_gsL": 64,
+    "block2.layer.4.relu1.shift_gsL": 64,
+    "block2.layer.4.relu2.neg_gsL": 64,
+    "block2.layer.4.relu2.pos_gsL": 64,
+    "block2.layer.4.relu2.shift_gsL": 64,
+    "block2.layer.5.relu1.neg_gsL": 64,
+    "block2.layer.5.relu1.pos_gsL": 64,
+    "block2.layer.5.relu1.shift_gsL": 64,
+    "block2.layer.5.relu2.neg_gsL": 64,
+    "block2.layer.5.relu2.pos_gsL": 64,
+    "block2.layer.5.relu2.shift_gsL": 64
+  },
+  "config": {
+    "dataset": "cifar100_c",
+    "architecture": "Hendrycks2020AugMix_WRN",
+    "batch_size": 128,
+    "optimizer": "Adam",
+    "lr": {
+      "source": 0.0,
+      "tent": 0.001,
+      "actta_tent": 0.01
+    },
+    "activation_prefixes": [
+      "block1",
+      "block2"
+    ],
+    "share": "channel",
+    "cudnn_benchmark": true,
+    "status": "candidate_not_full_benchmark_verified"
+  },
+  "checkpoint_sha256": "8747cfde9934180a8b9cca10c7567660dbe3e3f731304bda59f84fdfb6fb5a9d",
+  "per_corruption": [
+    {
+      "corruption": "gaussian_noise",
+      "samples": 10000,
+      "error_percent": 38.78,
+      "sample_order_sha256": "94694a5af0c76138c5e29f79cf018dc56421573b7aaccd4fe150167434a11a61",
+      "seconds": 10.251297416165471
+    },
+    {
+      "corruption": "shot_noise",
+      "samples": 10000,
+      "error_percent": 37.739999999999995,
+      "sample_order_sha256": "744039af3d3d33450082e0c46059f0ce1357bb2fdb9bde8e3f66f20432bca4ab",
+      "seconds": 7.134122842922807
+    },
+    {
+      "corruption": "impulse_noise",
+      "samples": 10000,
+      "error_percent": 37.35000000000001,
+      "sample_order_sha256": "af4d1778f2864a9d782b999b4b4d684a515839bafec912b71f561d885c7bc75c",
+      "seconds": 7.820037325844169
+    },
+    {
+      "corruption": "defocus_blur",
+      "samples": 10000,
+      "error_percent": 29.24,
+      "sample_order_sha256": "d6153ffdb6f8fa1c013891cba150861382bcf889a21856063cb693ef43cd35ba",
+      "seconds": 7.953492207452655
+    },
+    {
+      "corruption": "glass_blur",
+      "samples": 10000,
+      "error_percent": 41.23,
+      "sample_order_sha256": "f02bc69fec0a982ea9683383365d6a560dd0e91acfc42c094f7871940e5e2c25",
+      "seconds": 7.825793815776706
+    },
+    {
+      "corruption": "motion_blur",
+      "samples": 10000,
+      "error_percent": 29.990000000000006,
+      "sample_order_sha256": "c9478c680257f02ff11d2345b594116e0afc13bd9b02cdf3b8a1d20f2f8f5665",
+      "seconds": 7.857384203001857
+    },
+    {
+      "corruption": "zoom_blur",
+      "samples": 10000,
+      "error_percent": 29.379999999999995,
+      "sample_order_sha256": "c75ffe618d16ed63bd3aaf8b67574211a2829f0c2a26ecf393fa7e3aaa353d5e",
+      "seconds": 7.070413514971733
+    },
+    {
+      "corruption": "snow",
+      "samples": 10000,
+      "error_percent": 33.24,
+      "sample_order_sha256": "332b58966cf810aec2e55765bb1997acd59934ae7657e29c6625c0d718841556",
+      "seconds": 7.785118022933602
+    },
+    {
+      "corruption": "frost",
+      "samples": 10000,
+      "error_percent": 34.28,
+      "sample_order_sha256": "4cae8e28342fce778361d7e1c690017e61479f894c81a056da81940d8dade787",
+      "seconds": 7.932444477453828
+    },
+    {
+      "corruption": "fog",
+      "samples": 10000,
+      "error_percent": 35.209999999999994,
+      "sample_order_sha256": "d0b6ca150d623066c69ebcfb444fb483910ad7633f3fb505f5f387ed5d86165a",
+      "seconds": 7.74242901429534
+    },
+    {
+      "corruption": "brightness",
+      "samples": 10000,
+      "error_percent": 26.990000000000002,
+      "sample_order_sha256": "8ea595fc7db1ff7df0975ac4504c0bea87b3ee2621f01e23b1d728955a52c749",
+      "seconds": 8.028082070872188
+    },
+    {
+      "corruption": "contrast",
+      "samples": 10000,
+      "error_percent": 30.269999999999996,
+      "sample_order_sha256": "6b0a44da8207236a7a9601fb2bacdba3db1757fb187b5b99fb6aeb250e17abb7",
+      "seconds": 7.282126044854522
+    },
+    {
+      "corruption": "elastic_transform",
+      "samples": 10000,
+      "error_percent": 36.660000000000004,
+      "sample_order_sha256": "a1d591103bf4c2b5577df582892bf931bbdcb50aaed4f48e1c19a8ea118e2441",
+      "seconds": 7.824684605002403
+    },
+    {
+      "corruption": "pixelate",
+      "samples": 10000,
+      "error_percent": 30.75,
+      "sample_order_sha256": "44d7008c9a82717611c39d0af5158951a69c94a714ab7b96a5422e64ecc8926a",
+      "seconds": 8.002796173095703
+    },
+    {
+      "corruption": "jpeg_compression",
+      "samples": 10000,
+      "error_percent": 38.580000000000005,
+      "sample_order_sha256": "ff514a7f1785d6352ee54b03af4910f514fbd31a95e0666a986a35d6af12ce8a",
+      "seconds": 7.924355175346136
+    }
+  ],
+  "complete": true,
+  "scope": "full_benchmark",
+  "completed_at_utc": "2026-10-08T07:50:17.697725+00:00",
+  "evaluation_seconds": 118.43457690998912,
+  "mean_error_percent": 33.97933333333334
+}

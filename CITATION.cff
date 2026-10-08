@@ -1,0 +1,24 @@
+cff-version: 1.2.0
+message: "Please cite the AcTTA paper when using this code."
+title: "AcTTA: Rethinking Test-Time Adaptation via Dynamic Activation"
+type: software
+authors:
+  - family-names: Kim
+    given-names: Hyeongyu
+  - family-names: Han
+    given-names: Geonhui
+  - family-names: Hwang
+    given-names: Dosik
+url: "https://github.com/hyeongyu-kim/actta"
+preferred-citation:
+  type: article
+  title: "AcTTA: Rethinking Test-Time Adaptation via Dynamic Activation"
+  authors:
+    - family-names: Kim
+      given-names: Hyeongyu
+    - family-names: Han
+      given-names: Geonhui
+    - family-names: Hwang
+      given-names: Dosik
+  year: 2026
+  doi: "10.48550/arXiv.2603.26096"

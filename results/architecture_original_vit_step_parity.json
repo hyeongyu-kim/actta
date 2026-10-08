@@ -1,0 +1,25 @@
+{
+  "architecture": "vit_base_patch16_224.orig_in21k_ft_in1k",
+  "batch": 2,
+  "device": "cpu",
+  "input": "synthetic RGB tensors",
+  "normalization_updates": true,
+  "nesterov": true,
+  "activation_blocks": 6,
+  "trainable_values": 93696,
+  "original_constructor_device_override": "zeros/ones use CPU for this parity check only; all original math, parameter selection, and optimizer code preserved",
+  "steps": [
+    {
+      "step": 1,
+      "logits_bitwise_equal": true,
+      "all_trainable_gradients_bitwise_equal": true,
+      "all_trainable_parameter_updates_bitwise_equal": true
+    },
+    {
+      "step": 2,
+      "logits_bitwise_equal": true,
+      "all_trainable_gradients_bitwise_equal": true,
+      "all_trainable_parameter_updates_bitwise_equal": true
+    }
+  ]
+}

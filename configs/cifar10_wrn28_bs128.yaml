@@ -1,0 +1,14 @@
+# Candidate settings recovered from local commands; see docs/REPRODUCIBILITY.md.
+dataset: cifar10_c
+architecture: Standard
+batch_size: 128
+optimizer: Adam
+lr:
+  source: 0.0
+  tent: 0.001
+  actta_tent: 0.01
+activation_prefixes:
+- block1
+share: channel
+cudnn_benchmark: true
+status: candidate_not_full_benchmark_verified

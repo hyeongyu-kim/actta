@@ -1,0 +1,27 @@
+{
+  "architecture": "vit_base_patch16_224.orig_in21k_ft_in1k",
+  "activation_blocks": 12,
+  "batch": 2,
+  "device": "cpu",
+  "input": "synthetic RGB tensors",
+  "normalization_affine_trainable": false,
+  "nesterov": true,
+  "lr": 0.0025,
+  "trainable_values": 110592,
+  "actual_selection_matches_original": true,
+  "original_constructor_device_override": "zeros/ones use CPU only; all original computation, block-based GELU replacement, normalization selection and SGD setup retained",
+  "steps": [
+    {
+      "step": 1,
+      "logits_bitwise_equal": true,
+      "all_trainable_gradients_bitwise_equal": true,
+      "all_trainable_parameter_updates_bitwise_equal": true
+    },
+    {
+      "step": 2,
+      "logits_bitwise_equal": true,
+      "all_trainable_gradients_bitwise_equal": true,
+      "all_trainable_parameter_updates_bitwise_equal": true
+    }
+  ]
+}

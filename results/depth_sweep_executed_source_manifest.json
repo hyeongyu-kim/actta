@@ -1,0 +1,128 @@
+{
+  "captured_before_gpu3_smoke_and_full_runs": true,
+  "physical_gpu": 3,
+  "shuffle": false,
+  "input_order_policy": "original_hgh_image_id_file_order",
+  "files": [
+    {
+      "path": "evaluate_depth_sweep_ordered.py",
+      "sha256": "2cc4f53cb9bfd1857afffb8f1baa023c577ece36fdd641817ed50b0875b0c272"
+    },
+    {
+      "path": "actta/depth_sweep.py",
+      "sha256": "e6d3a3c83df4e299d0151bec73add90e49537a85c6d727c7760382be660822db"
+    },
+    {
+      "path": "actta/architecture_audit.py",
+      "sha256": "f962d669b3cd1362d5c814e74b43477823d41ba16fa18648e9465bd81fce909b"
+    },
+    {
+      "path": "actta/activation.py",
+      "sha256": "868aa76341c77ec2e4a4e66c4dd869cffb3ae2040a2f8c5ef4d67effecb7a0cc"
+    },
+    {
+      "path": "actta/adaptation.py",
+      "sha256": "e7ba91c783d6b05dd6be1e414d05d0ffd5a0f65c43614868754c1b524310c287"
+    },
+    {
+      "path": "actta/imagenet.py",
+      "sha256": "73125382a8b6c0f84b39c4b229d87fe6b959f8f151dbdff4e68cd0fafe18d944"
+    },
+    {
+      "path": "actta/data.py",
+      "sha256": "d524724f845689a01b106e980f09036d7f2607bdf7a3646ecef30d25975d79ff"
+    },
+    {
+      "path": "actta/__init__.py",
+      "sha256": "2ba010228818030402abcb490933fad68baaa345af2e770d82bcb5eb3bb2a336"
+    },
+    {
+      "path": "reference/data/imagenet_test_image_ids.txt",
+      "sha256": "41859fb6c645b32e24c698de00fd5867d7a25c886ddc41e78eaa087cb75e41a2"
+    },
+    {
+      "path": "reference/data/imagenet_class_to_id_map.json",
+      "sha256": "b1c9c3a901b0910ac844cabe252e7fe4b29b2660a4fbc448cb82f4e7e122b2d5"
+    },
+    {
+      "path": "requirements.txt",
+      "sha256": "78bcc8ca24c13aa95ebef04e5f2efa17742afa088100ab9d616fc06a6575b0fb"
+    },
+    {
+      "path": "requirements-imagenet-audit.txt",
+      "sha256": "d00b1620351cd5f4c8d33a18bef3f2d9cb49b710e8bd43eecf8b5c4a9153c16b"
+    },
+    {
+      "path": "configs/depth_sweep_ordered/resnet50_d000.yaml",
+      "sha256": "c0945dbea56266c31680e1fbd34924ce3b6de6689528e04ceb1fe0fe2db307f7"
+    },
+    {
+      "path": "configs/depth_sweep_ordered/resnet50_d010.yaml",
+      "sha256": "80e38a69e81c55995c8bd5c5f2972fe4a98010b78257fc4a5612676ea2ec517a"
+    },
+    {
+      "path": "configs/depth_sweep_ordered/resnet50_d025.yaml",
+      "sha256": "103804c7e4906057a2af2fe64288a22a3e5253b00057362bae1d7ae1269a820c"
+    },
+    {
+      "path": "configs/depth_sweep_ordered/resnet50_d050.yaml",
+      "sha256": "3c32b9afb6dcc1b33622b1871c576ace65bb5260dc33804aff67ab8459114704"
+    },
+    {
+      "path": "configs/depth_sweep_ordered/resnet50_d075.yaml",
+      "sha256": "ae0112f036de69a4f85e00e03840fb880d60de8196f0d9d6bb6d5d82b55cc14d"
+    },
+    {
+      "path": "configs/depth_sweep_ordered/resnet50_d100.yaml",
+      "sha256": "7dee2000dd6b64bd65d867b93aa1a909f521ed63e6121cb9b585c295725bceb9"
+    },
+    {
+      "path": "configs/depth_sweep_ordered/vit_b16_d000.yaml",
+      "sha256": "466cacacc83cb5260b9c2ac207eacf3d07258f0bee1e3246b5979f2aabc8c386"
+    },
+    {
+      "path": "configs/depth_sweep_ordered/vit_b16_d010.yaml",
+      "sha256": "8fe538f288a4cf28d2cf02cfe703159362e96862e4a9a55579cb4a90d0c041c0"
+    },
+    {
+      "path": "configs/depth_sweep_ordered/vit_b16_d025.yaml",
+      "sha256": "b7f15b988f989f7349ed278c3e6952dbab157d08adfd141f10ea8c74b439971c"
+    },
+    {
+      "path": "configs/depth_sweep_ordered/vit_b16_d050.yaml",
+      "sha256": "b998fab01dba8983d5ac01238412349da5005343ec7cafe1e52c639a6b6a1beb"
+    },
+    {
+      "path": "configs/depth_sweep_ordered/vit_b16_d075.yaml",
+      "sha256": "c6778c79e347517f27c69685152d4ab2f9e31f2ae9785f0ab924071edb259078"
+    },
+    {
+      "path": "configs/depth_sweep_ordered/vit_b16_d100.yaml",
+      "sha256": "4d91d367687d1679d0f2bb3e11ad1bbe06f2e556eef0b5ed04bd4ca3729cd3eb"
+    },
+    {
+      "path": "reference/depth_sweep_order/datasets/corruptions_datasets.py",
+      "sha256": "f3b2e7bc0a5223c50d7f57a026d042373c81030f1f657c140d71fe2116226ba7"
+    },
+    {
+      "path": "reference/depth_sweep_order/datasets/data_loading.py",
+      "sha256": "04a43c08a8b9e3cdec346578bb538a75ffb14a9a6cde2f125e8a656e30509dab"
+    },
+    {
+      "path": "reference/depth_sweep_order/robustbench/data.py",
+      "sha256": "54031d5a60635e8331199eb1c7c82ad226abdaf763256288f78b4b06d8d3d26a"
+    },
+    {
+      "path": "reference/depth_sweep_order/robustbench/loaders.py",
+      "sha256": "bfe1c1435762d86457d5e65b5d9fbb6959faacb5e0b7d6c15db1427cf301cafa"
+    },
+    {
+      "path": "reference/depth_sweep_order/test_time.py",
+      "sha256": "fd7215393ed382fbdf20b38f81fe016b3ca68f835e03fd438f5d21e130eb3e0b"
+    },
+    {
+      "path": "reference/depth_sweep_order/test_time_hgh.py",
+      "sha256": "44a0dae515a4dc0c276648e8252024a5d8595e5e8db8774738d102f11d1607f8"
+    }
+  ]
+}
