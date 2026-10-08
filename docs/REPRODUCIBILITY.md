@@ -6,13 +6,29 @@ for comparison and porting of other objectives.
 
 ## Environment
 
-Use Python 3.12:
+For the recorded ImageNet-C results, use the measured **Linux x86_64 Conda
+binary runtime**, followed by the pinned Python requirements:
 
 ```bash
-python -m venv .venv
-source .venv/bin/activate
-python -m pip install -r requirements-depth-sweep.txt
+conda create --name actta --file environment-conda-linux-64.lock.txt --yes
+conda activate actta
+python -m pip install -r requirements-depth-sweep.txt -r requirements-conda-extras.lock.txt
+python tools/check_environment.py
 ```
+
+The explicit lock includes official package URLs and checksums for the measured
+Python, PyTorch/CUDA, NumPy, Pillow, and native libraries. Python package versions
+alone do not identify these binaries: the measured Pillow 10.2 uses IJG JPEG 9,
+while the tested PyPI Pillow 10.2 wheel uses libjpeg-turbo 3.0.1. The same JPEG
+files decoded to different RGB values. The CUDA/BLAS binaries also differed.
+Use the lock to retain the measured input decoding and binary runtime.
+
+A generic Python 3.12 venv with `pip install -r requirements-depth-sweep.txt`
+passes the execution checks, but does not reproduce the recorded ImageNet-C
+errors in the tested environment. Dataset-file hashes identify compressed bytes;
+they do not guarantee equal decoded pixels across JPEG libraries.
+The [fresh-clone validation](FRESH_CLONE_VALIDATION.md) records the tested errors
+and remaining numerical limits.
 
 `requirements.txt` suffices for CIFAR-C; `requirements-imagenet-audit.txt`
 adds timm/Pillow; `requirements-depth-sweep.txt` adds matplotlib for plotting.

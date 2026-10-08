@@ -44,6 +44,16 @@ The saved parity reports are:
 Parity reports record completed checks, rather than claiming that unit tests
 download and rerun those full-model experiments.
 
+## Fresh GitHub clone verification
+
+An independent clone and clean environments were tested with actual data on
+GPU 3. This found a numerical mismatch caused in part by different JPEG-decoder
+binaries despite matching Pillow versions. The recommended Conda/native and
+Python-addition locks preserve the measured runtime. The observed comparisons
+and remaining RN50 variation are documented in
+[FRESH_CLONE_VALIDATION.md](FRESH_CLONE_VALIDATION.md) and
+[the verification summary](../results/fresh_clone_validation.json).
+
 ## Source and result integrity
 
 `results/gpu2_executed_source_manifest.json`,

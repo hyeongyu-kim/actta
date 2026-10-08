@@ -1,0 +1,91 @@
+{
+  "purpose": "Consumer validation using an actual public GitHub clone and separately created environments.",
+  "inference_git_commit_tested": "3fee52fdab52f91026f135a71a83cc45decabaec",
+  "inference_sources_and_recorded_raw_results_unchanged": true,
+  "platform": "Linux x86_64; NVIDIA RTX A6000; physical GPU 3",
+  "clean_pypi_environment": {
+    "install_passed": true,
+    "pip_check_passed": true,
+    "unit_tests_passed": 16,
+    "yaml_configs_parsed": 23,
+    "all_three_shell_scripts_syntax_passed": true,
+    "publication_hash_checks_passed": 184,
+    "required_imagenet_image_paths_checked": 75000,
+    "documented_aggregation_commands_passed": true,
+    "regenerated_depth_png_byte_identical": true,
+    "all42_run_report_byte_identical": true,
+    "actual_gpu_evaluations_passed": 31,
+    "ordered_depth_yamls_executed": 12,
+    "architecture_profiles_executed": 12,
+    "cifar_profiles_executed": 5,
+    "predictions": 15576,
+    "recorded_imagenet_numbers_reproduced": false
+  },
+  "decoded_image_probe": {
+    "corruption": "gaussian_noise",
+    "images": 8,
+    "shape": [
+      8,
+      224,
+      224,
+      3
+    ],
+    "measured_jpeg_codec": "9.0",
+    "pypi_jpeg_codec": "6.2",
+    "pypi_libjpeg_turbo": "3.0.1",
+    "pypi_vs_measured_rgb_elements_differing": 1076783,
+    "rgb_elements_compared": 1204224,
+    "maximum_absolute_rgb_channel_difference": 156,
+    "locked_vs_measured_decoded_pixels_bitwise_equal": true
+  },
+  "locked_runtime": {
+    "conda_packages_pinned": 90,
+    "pip_additions_pinned": 23,
+    "install_passed": true,
+    "pip_check_passed": true,
+    "runtime_preflight_passed": true,
+    "preflight_rejects_pypi_runtime": true,
+    "unit_tests_passed": 16,
+    "two_5000_image_corruption_comparisons_completed": true,
+    "native_libtorch_cuda_cublas_and_jpeg_library_bytes_match_existing_environment": true,
+    "runtime_lock_sha256": "c018b496fa0096636aaafacba4790754955e6fb8a9517a4df3f53d4ddc9d8829",
+    "python_additions_lock_sha256": "cebb46fa5327fd06bfa182a153f7db9feb8600a90312db538f291044f492ada6"
+  },
+  "numerical_comparisons": [
+    {
+      "run": "resnet50_d050",
+      "corruption": "gaussian_noise",
+      "samples": 5000,
+      "recorded_error_percent": 82.48,
+      "fresh_locked_error_percent": 82.54,
+      "error_difference_pp": 0.060000000000002274,
+      "input_order_and_content_match": true,
+      "selection_and_trainable_parameters_match": true,
+      "physical_gpu": 3,
+      "fresh_pypi_error_percent": 81.36,
+      "existing_environment_control_error_percent": 82.5
+    },
+    {
+      "run": "vit_b16_d050",
+      "corruption": "gaussian_noise",
+      "samples": 5000,
+      "recorded_error_percent": 66.46000000000001,
+      "fresh_locked_error_percent": 66.46000000000001,
+      "error_difference_pp": 0.0,
+      "input_order_and_content_match": true,
+      "selection_and_trainable_parameters_match": true,
+      "physical_gpu": 3,
+      "fresh_pypi_error_percent": 69.38,
+      "existing_environment_control_error_percent": null
+    }
+  ],
+  "limits": {
+    "all15_corruptions_full_depth_sweep_rerun": false,
+    "gaussian_comparisons_are_not_mean_benchmark_errors": true,
+    "rn50_exact_recorded_error_reproduced": false,
+    "vit_exact_recorded_error_reproduced": true,
+    "remaining_rn50_difference_cause_proven": false,
+    "original_measured_cudnn_benchmark_true_retained": true,
+    "final_three_seed_paper_configuration_certified": false
+  }
+}

@@ -26,14 +26,22 @@ as original reference source; they are outside this release's runnable benchmark
 
 ## Install
 
-Use Python 3.12 and install the pinned environment:
+Use the measured Linux x86_64 Conda runtime to reproduce the recorded
+ImageNet-C numbers:
 
 ```bash
-python -m venv .venv
-source .venv/bin/activate
-python -m pip install -r requirements-depth-sweep.txt
+conda create --name actta --file environment-conda-linux-64.lock.txt --yes
+conda activate actta
+python -m pip install -r requirements-depth-sweep.txt -r requirements-conda-extras.lock.txt
+python tools/check_environment.py
 python -m unittest discover -s tests -v
 ```
+
+The lock fixes binary builds and native libraries, including Pillow's JPEG
+decoder. A fresh PyPI installation ran successfully, but decoded the same
+ImageNet-C JPEGs differently and changed measured errors. Use the locked
+runtime for the recorded numbers.
+See [fresh-clone verification and numerical checks](docs/FRESH_CLONE_VALIDATION.md).
 
 The measured environment used Python 3.12.2, PyTorch 2.2.1 with CUDA 12.1,
 torchvision 0.17.1, timm 1.0.15, and an NVIDIA RTX A6000. Datasets and model

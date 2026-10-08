@@ -42,3 +42,6 @@ protocol-specific comparison. Single-seed results do not verify three-seed means
 The original parity and input-order records are described in
 [VALIDATION.md](../docs/VALIDATION.md). Recompute summaries with
 [the documented commands](../docs/REPRODUCIBILITY.md#output-checks-and-aggregation).
+
+`fresh_clone_validation.json` records consumer installation/execution checks and
+separate numerical spot checks. It does not replace the 42 recorded full runs.

@@ -27,8 +27,8 @@
     },
     {
       "path": "README.md",
-      "sha256": "a41eef1966b1c42bbf993d5f106444e6ee6727d10c8e99d4e90f1c4894406da5",
-      "bytes": 6032
+      "sha256": "6920f7c621bcdc65193507a67ad3127d580acb6a25b4ff5cc1a528e6674baca5",
+      "bytes": 6533
     },
     {
       "path": "THIRD_PARTY.md",
@@ -196,9 +196,14 @@
       "bytes": 7144
     },
     {
+      "path": "docs/FRESH_CLONE_VALIDATION.md",
+      "sha256": "9a09878cf72054af41471c257779191df0c37d1d806d88f4f40c1ff74b7a260c",
+      "bytes": 3983
+    },
+    {
       "path": "docs/REPRODUCIBILITY.md",
-      "sha256": "cb1302b8285c1778cc187f459c046d000d77520a78f66226998b215030672fda",
-      "bytes": 8608
+      "sha256": "a8eceb34f0b503387d6914c06428c0be47cddc22317972ad342de54a38f02a1e",
+      "bytes": 9737
     },
     {
       "path": "docs/RESULTS.md",
@@ -207,8 +212,13 @@
     },
     {
       "path": "docs/VALIDATION.md",
-      "sha256": "5a8b025d1717d5c52fd1532ad6b0d25b0f73ec3ffaa22df6963bd1c860a9f4a8",
-      "bytes": 4431
+      "sha256": "37049e5307b59627b3d862d8b5ea9004fbb3e97b96c7ea54266d76643a37067b",
+      "bytes": 4952
+    },
+    {
+      "path": "environment-conda-linux-64.lock.txt",
+      "sha256": "c018b496fa0096636aaafacba4790754955e6fb8a9517a4df3f53d4ddc9d8829",
+      "bytes": 10078
     },
     {
       "path": "evaluate.py",
@@ -421,6 +431,11 @@
       "bytes": 2546
     },
     {
+      "path": "requirements-conda-extras.lock.txt",
+      "sha256": "cebb46fa5327fd06bfa182a153f7db9feb8600a90312db538f291044f492ada6",
+      "bytes": 520
+    },
+    {
       "path": "requirements-depth-sweep.txt",
       "sha256": "8a6791ff23d2ea0c2a00f084cec7b046e299bdb45b064c2ab0cdbc1de4345c10",
       "bytes": 54
@@ -437,8 +452,8 @@
     },
     {
       "path": "results/README.md",
-      "sha256": "95b662c4a41a9c2a0d3389d3ca8ea197475611816f6c50264caf70ddcb83a667",
-      "bytes": 2736
+      "sha256": "0d7923250bdb143d2c357fc3e35a8cb7e8d1146ab10a72f92727bc5e0b143b60",
+      "bytes": 2897
     },
     {
       "path": "results/architecture_audit_summary.csv",
@@ -696,6 +711,11 @@
       "bytes": 724
     },
     {
+      "path": "results/fresh_clone_validation.json",
+      "sha256": "c556c5fd4c6fd06c0b6a891ad2e3ae918c366066e605c2f49e7f6c1b63c98798",
+      "bytes": 3431
+    },
+    {
       "path": "results/gpu2_executed_source_manifest.json",
       "sha256": "ea4d46753ef87ffad26a0010483c71261aec76b366265eb7ff99310ab6515a32",
       "bytes": 3212
@@ -871,6 +891,11 @@
       "bytes": 2800
     },
     {
+      "path": "tools/check_environment.py",
+      "sha256": "3c9b061872fa6f6aa278c0c3e7c4a30b71453871dc41488aed8c72b17efa4ad1",
+      "bytes": 1675
+    },
+    {
       "path": "tools/plot_depth_sweep.py",
       "sha256": "c2754e2c7f8cfc7b8cebb6a58c67c6e3185f39edf367e02c7b54a98afe40294e",
       "bytes": 2222
@@ -928,5 +953,8 @@
   ],
   "current_reproduction_suite_full_runs": 34,
   "historical_full_runs": 8,
-  "reporting_manifest": "results/reporting_manifest.json"
+  "reporting_manifest": "results/reporting_manifest.json",
+  "measured_binary_runtime_lock": "environment-conda-linux-64.lock.txt",
+  "python_additions_lock": "requirements-conda-extras.lock.txt",
+  "fresh_clone_validation": "results/fresh_clone_validation.json"
 }
