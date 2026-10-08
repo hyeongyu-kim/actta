@@ -1,10 +1,12 @@
 # Validation and scope
 
-This public subset contains 34 complete, previously executed evaluations.
+This public release contains 42 complete, previously executed evaluations:
+34 current reproduction-suite runs and eight historical measurements.
 Inference sources, measured YAMLs, and raw result JSONs are copied byte for
-byte from the preserved release. The original local archive retains all 42
-complete runs, including eight earlier historical/stream-order diagnostics
-outside this subset. No incomplete run is included.
+byte from the preserved release. The original local archive also retains all 42
+complete runs. Earlier runner/stream profiles are documented in the results
+appendix. No incomplete run is included. The plotting/reporting changes do not
+alter measured errors or inference sources.
 
 ## Checks
 
@@ -12,7 +14,7 @@ outside this subset. No incomplete run is included.
   original activation output/gradient parity, selection boundaries, shared
   ReLU splitting, trainable parameter selection, optimizer updates/resets,
   zero-depth BN behavior, and rejection of incomplete results.
-- All 34 full records include all 15 corruptions and the required number of
+- All 42 full records include all 15 corruptions and the required number of
   images: 10,000 each for CIFAR and 5,000 each for ImageNet. Means are checked
   against per-corruption errors. Independent summation checks confirm their
   error counts and prediction totals.
@@ -48,8 +50,12 @@ download and rerun those full-model experiments.
 `results/architecture_executed_source_manifest.json`, and
 `results/depth_sweep_executed_source_manifest.json` preserve the source hashes
 captured before evaluation. `results/depth_sweep_workflow_manifest.json`
-separately captures the reporting workflow. Every referenced file is included
-and matches its stored hash. `results/publication_manifest.json` records all
+captures the initial reporting workflow and remains unchanged. Its original
+plotter is preserved under `reference/reporting_v1/tools/plot_depth_sweep.py`;
+`results/reporting_manifest.json` resolves that historical path and records
+the current measurement-only reporter. Inference-source manifest paths still
+resolve directly to the active files with their original hashes.
+`results/publication_manifest.json` records all
 included code/config/reference/result/doc files, excluding itself and the
 unchanged website.
 

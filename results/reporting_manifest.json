@@ -1,0 +1,52 @@
+{
+  "purpose": "Measurement-only depth figure and complete reporting of supplied current-suite and historical evaluations; inference sources and raw records are unchanged.",
+  "initial_workflow_manifest": "results/depth_sweep_workflow_manifest.json",
+  "historical_workflow_path_overrides": {
+    "tools/plot_depth_sweep.py": "reference/reporting_v1/tools/plot_depth_sweep.py"
+  },
+  "public_full_runs": 42,
+  "current_reproduction_suite_full_runs": 34,
+  "historical_full_runs": 8,
+  "files": [
+    {
+      "path": "tools/plot_depth_sweep.py",
+      "sha256": "c2754e2c7f8cfc7b8cebb6a58c67c6e3185f39edf367e02c7b54a98afe40294e",
+      "bytes": 2222
+    },
+    {
+      "path": "tools/report_completed_results.py",
+      "sha256": "2afe2cbc41da4c46c2a1e326a91c6c4e2b5bb78f1ac147d3889fade86f58f136",
+      "bytes": 7709
+    },
+    {
+      "path": "results/depth_sweep_curve.png",
+      "sha256": "0d9ecfe15978f28ed166cd103448525d25ed5ac74bd0f638b29c69ab1d6fec41",
+      "bytes": 153176
+    },
+    {
+      "path": "results/depth_sweep_curve.pdf",
+      "sha256": "2b4e8bb05ce90c9029e704521d278a7245354d4bdd1b415804561f6cf484aeb0",
+      "bytes": 20078
+    },
+    {
+      "path": "results/depth_sweep_curve.svg",
+      "sha256": "d55105fd7ece40ca01c18044b21c3df3333c84157f89de2d00c9e799c9b5d167",
+      "bytes": 71331
+    },
+    {
+      "path": "results/benchmark_summary.csv",
+      "sha256": "d4406ec62e5a2a22711072e583890d57c86ea6e6b11f7f1ba373905211b412d0",
+      "bytes": 2362
+    },
+    {
+      "path": "results/historical_results.csv",
+      "sha256": "02fb3b14c16023318f1c9a6e2481ffd9aa16342b5312200a5a70fbdb8430c012",
+      "bytes": 2113
+    },
+    {
+      "path": "results/reproduction_ledger.json",
+      "sha256": "86912ebc2ebebfbeb81cbae56819af53dfaa8830cfa170cedbeab75938579de0",
+      "bytes": 20132
+    }
+  ]
+}

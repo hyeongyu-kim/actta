@@ -1,10 +1,11 @@
 # Measured results and comparison with the paper
 
-Errors are percentages; lower is better. This subset contains **34 completed
-full runs**, measured on 2026-10-08: 12 CIFAR-C, 12 ImageNet-C architecture/settings
-comparisons, and 10 ordered ImageNet-C depth points. Original raw result JSONs
-are included unchanged. All declared comparisons are retained, including worse
-outcomes; settings are not selected by proximity to a paper number.
+Errors are percentages; lower is better. There are **42 completed full runs**,
+measured on 2026-10-08: 34 in the current reproduction suite (12 CIFAR-C, 12
+ImageNet-C architecture/settings comparisons, and 10 ordered depth points),
+plus eight earlier measurements reported in the appendix. Original raw result
+JSONs are included unchanged. All declared comparisons are retained, including
+worse outcomes; settings are not selected by proximity to a paper number.
 
 ImageNet measurements use **seed 1** and batch 128; the paper reports three-seed
 means. Numerical agreement does not certify the final paper configuration.
@@ -37,7 +38,10 @@ paper target; at two-decimal precision 4/8 are no worse and 3/8 match.
 The remaining differences are retained. This distinguishes exact differences
 from rounded matches; neither establishes the paper's three-seed statistics.
 
-![Depth curves and paper targets](../results/depth_sweep_curve.png)
+![Measured activation-depth curves](../results/depth_sweep_curve.png)
+
+The figure shows the completed measurements only. Paper comparisons remain
+in the numerical table above.
 
 Evidence: [raw runs](../results/depth_sweep_runs/),
 [summary CSV](../results/depth_sweep_summary.csv),
@@ -129,10 +133,44 @@ connecting Table 4 and Table 5. Appendix base rates and larger-AcTTA rates are
 not silently equated. See [ARCHITECTURE.md](ARCHITECTURE.md) for each distinction.
 
 All 42 complete runs and earlier archives remain preserved in the author's local
-research workspace. This public subset excludes three earlier RN50 runs whose
-runner omitted Nesterov and used the legacy stage selection, and five shuffled
-RN50 pilot depth points superseded by the original depth runner's fixed-order
-protocol. They were valid measurements of those historical profiles, but do not
-populate the current curve. The incomplete ViT pilot is never counted. All
-settings comparisons in the current twelve-case architecture suite remain
-included, with their actual measured outcomes.
+research workspace. The eight earlier measurements below retain their original
+settings and do not populate the current depth curve. The incomplete ViT pilot
+is never counted. All settings comparisons in the current twelve-case
+architecture suite remain included, with their actual measured outcomes.
+
+## Earlier completed measurements
+
+These eight raw records are provided as historical measurements. The current
+reproduction scripts run the 34-case suite; the earlier results document separate
+runner/stream profiles and are not additional runs of that suite.
+
+The first three RN50 evaluations used the same torchvision V1 checkpoint,
+BS128, seed 1, all 15 severity-5 corruptions × 5,000 images, and the shuffled
+stream. The earlier adaptation runner used SGD momentum 0.9 with
+**Nesterov=False**, TENT LR 0.00025, and AcTTA LR 0.005. AcTTA selected the
+stem plus sixteen residual-output ReLUs, rather than the 25/49-call prefix.
+Source used stored BN statistics and no optimizer.
+
+| Earlier RN50 setting | Error (%) |
+|---|---:|
+| Source | 82.0213 |
+| TENT, standard SGD | 66.6693 |
+| AcTTA, legacy 17-module selection, standard SGD | 65.1493 |
+
+The five RN50 depth pilot points used `shuffle=True`, LR 0.0025,
+Nesterov=True, and frozen BN affine values. Counts were 0/13/25/38/49. They
+preceded recovery of the depth runner's `shuffle=False` order.
+
+| Earlier shuffled RN50 depth | Error (%) |
+|---|---:|
+| 0% | 68.1200 |
+| 25% | 67.0813 |
+| 50% | 65.8760 |
+| 75% | 64.6653 |
+| 100% | 64.1520 |
+
+Evidence: [earlier RN50 raw runs](../results/imagenet_runs/),
+[shuffled pilot raw runs](../results/depth_sweep_shuffled_pilot_runs/),
+and [historical summary](../results/historical_results.csv).
+The [complete run index](../results/reproduction_ledger.json) identifies the
+profile and checksum of every included record.

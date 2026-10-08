@@ -13,6 +13,8 @@ Source, TENT, and AcTTA_TENT configurations.
 - `depth_sweep_order/`: original dataset/loader and main/depth evaluators,
   substantiating `shuffle=True` versus `shuffle=False` and image-ID ordering.
 - `data/`: original RobustBench 5,000 ImageNet image IDs and class map.
+- `reporting_v1/`: the unchanged initial comparison plotter, preserved for
+  checking the original reporting-workflow hash after the figure was simplified.
 
 Historical defaults, comments, or paths in these unchanged snapshots are not
 instructions for the active evaluators. Main/depth candidates are distinguished

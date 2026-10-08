@@ -13,8 +13,10 @@ Hyeongyu Kim, Geonhui Han, Dosik Hwang · CVPR 2026
 This release provides **AcTTA with the TENT entropy objective**, Source/TENT
 controls, explicit ResNet-50 and ViT-B/16 configurations, and measured CIFAR-C
 and ImageNet-C results recovered and rerun from the author's research workspace.
-It includes **34 complete evaluations**: 12 CIFAR-C runs, 12 ImageNet-C
-architecture/settings comparisons, and 10 ImageNet-C activation-depth runs.
+It includes **34 evaluations in the current reproduction suite**: 12 CIFAR-C
+runs, 12 ImageNet-C architecture/settings comparisons, and 10 ImageNet-C
+activation-depth runs. Eight earlier completed measurements are also reported
+with their original settings, bringing the recorded total to **42 full runs**.
 
 The recorded configurations are reproducible candidates. **The complete final
 paper configuration and its three-seed ImageNet statistics are not yet
@@ -76,9 +78,25 @@ approximately **10%, not 0%**. The optional 10% YAMLs are implemented but have
 not been measured here. ViT's 50/75/100% errors match Table 4 at two decimals;
 remaining differences are reported in [the results](docs/RESULTS.md).
 
-![Activation-depth measurements and paper targets](results/depth_sweep_curve.png)
+![Measured activation-depth curves](results/depth_sweep_curve.png)
 
 ## Other measured configurations
+
+The following entries use the main shuffled stream. Errors are percentages;
+lower is better. AcTTA uses the TENT entropy objective.
+
+| Dataset / backbone | Batch | TENT | AcTTA-TENT | AcTTA setting |
+|---|---:|---:|---:|---|
+| CIFAR-10-C / WRN-28-10 | 128 | 18.4276 | 17.0322 | first WRN stage; mean of seeds 1, 2, 3 |
+| CIFAR-100-C / WRN-40-2 | 128 | 35.4367 | 33.9793 | first two WRN stages; seed 1 |
+| CIFAR-100-C / WRN-40-2 | 4 | 57.1500 | 54.8673 | first two WRN stages; seed 1 |
+| ImageNet-C / ResNet-50 | 128 | 66.6027 | 64.3213 | first 25/49 ReLU calls, LR 0.005, frozen BN affine; seed 1 |
+| ImageNet-C / ViT-B/16 | 128 | 53.4987 | 49.0547 | first 6/12 MLP GELUs + all LN, LR 0.001, tanh GELU; seed 1 |
+
+These measured settings have different LRs and normalization choices from the
+fixed-LR ordered depth sweep. They are reported with their actual configurations.
+CIFAR-10-C's AcTTA population SD is 0.06458%; other rows here are single-seed.
+The complete overview is in [benchmark_summary.csv](results/benchmark_summary.csv).
 
 - [ImageNet architecture/settings comparisons](docs/RESULTS.md#imagenet-c-architecture-and-settings-comparisons):
   separate shuffled-stream runs, including joint LayerNorm, exact/tanh GELU,
@@ -89,6 +107,8 @@ remaining differences are reported in [the results](docs/RESULTS.md).
   errors, layer manifests, paper comparisons, and source checksums.
 - [Validation](docs/VALIDATION.md): unit checks, input-order verification,
   and original-code forward/gradient/update parity.
+- [Earlier measurements](docs/RESULTS.md#earlier-completed-measurements): three
+  original ResNet runs and five shuffled depth pilot points, with their settings.
 
 ## Citation and licenses
 

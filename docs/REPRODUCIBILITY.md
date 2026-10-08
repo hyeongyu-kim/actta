@@ -189,3 +189,15 @@ python -m tools.summarize_architecture_audit results/architecture_runs/*.json \
 python tools/aggregate_results.py results/gpu2_runs/*.json \
   --output output/cifar_summary.json
 ```
+
+Regenerate the benchmark overview, historical-result appendix, and index of all
+42 supplied complete records:
+
+```bash
+python -m tools.report_completed_results --output output/completed_report
+```
+
+The eight historical records use their original runner/stream profiles, described
+in [the results appendix](RESULTS.md#earlier-completed-measurements). Current
+reproduction scripts cover the 34-case suite. The depth plotter exports only
+measured curves; numerical paper comparisons remain in the summary tables.
