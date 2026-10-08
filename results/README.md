@@ -24,8 +24,8 @@ README. `historical_results.csv` reports the earlier runner/stream settings;
 these records do not enter the current ordered depth curve.
 
 The `*_per_corruption.csv` files provide corruption-level errors. Layer manifests
-list actual selected activation paths and widths. The depth figure is available
-as PNG, PDF, and SVG. Source manifests identify exact executed files; the
+list actual selected activation paths and widths. The measured depth figure is available
+as `depth_sweep_measured.png`, `.pdf`, and `.svg`. Source manifests identify exact executed files; the
 publication manifest includes SHA-256 checksums for this public subset.
 `reproduction_ledger.json` indexes all 42 included runs and their profiles.
 

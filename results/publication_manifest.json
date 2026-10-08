@@ -27,8 +27,8 @@
     },
     {
       "path": "README.md",
-      "sha256": "4166e3353ba002fb5a440cd2a2519795bb0c09ba0f42c59eb018a9ade2bd574a",
-      "bytes": 6029
+      "sha256": "a41eef1966b1c42bbf993d5f106444e6ee6727d10c8e99d4e90f1c4894406da5",
+      "bytes": 6032
     },
     {
       "path": "THIRD_PARTY.md",
@@ -202,8 +202,8 @@
     },
     {
       "path": "docs/RESULTS.md",
-      "sha256": "801f4374c54f8aa4c3530e5b1af6a05b82ccc8467de966cde009a2f408f65846",
-      "bytes": 9410
+      "sha256": "0e36e74ac746d43f679176b79f91b9c02c15ab212927723c3e139d27f51f09c4",
+      "bytes": 9413
     },
     {
       "path": "docs/VALIDATION.md",
@@ -437,8 +437,8 @@
     },
     {
       "path": "results/README.md",
-      "sha256": "e5bca91209c408fa131c36e49a3f0c79129649921adfa4359a4fbf710feab9c0",
-      "bytes": 2698
+      "sha256": "95b662c4a41a9c2a0d3389d3ca8ea197475611816f6c50264caf70ddcb83a667",
+      "bytes": 2736
     },
     {
       "path": "results/architecture_audit_summary.csv",
@@ -556,21 +556,6 @@
       "bytes": 2362
     },
     {
-      "path": "results/depth_sweep_curve.pdf",
-      "sha256": "2b4e8bb05ce90c9029e704521d278a7245354d4bdd1b415804561f6cf484aeb0",
-      "bytes": 20078
-    },
-    {
-      "path": "results/depth_sweep_curve.png",
-      "sha256": "0d9ecfe15978f28ed166cd103448525d25ed5ac74bd0f638b29c69ab1d6fec41",
-      "bytes": 153176
-    },
-    {
-      "path": "results/depth_sweep_curve.svg",
-      "sha256": "d55105fd7ece40ca01c18044b21c3df3333c84157f89de2d00c9e799c9b5d167",
-      "bytes": 71331
-    },
-    {
       "path": "results/depth_sweep_executed_source_manifest.json",
       "sha256": "7540649bd745a9c05892d8914938e84e9e216dbcfcc6936acdfde2ca67105b04",
       "bytes": 4728
@@ -584,6 +569,21 @@
       "path": "results/depth_sweep_layer_manifest.csv",
       "sha256": "91152fa02841d8c7bc4607e2ce398f08ae3fdfa6ba32a5f0fad0ba9b0ae08762",
       "bytes": 10153
+    },
+    {
+      "path": "results/depth_sweep_measured.pdf",
+      "sha256": "2b4e8bb05ce90c9029e704521d278a7245354d4bdd1b415804561f6cf484aeb0",
+      "bytes": 20078
+    },
+    {
+      "path": "results/depth_sweep_measured.png",
+      "sha256": "0d9ecfe15978f28ed166cd103448525d25ed5ac74bd0f638b29c69ab1d6fec41",
+      "bytes": 153176
+    },
+    {
+      "path": "results/depth_sweep_measured.svg",
+      "sha256": "d55105fd7ece40ca01c18044b21c3df3333c84157f89de2d00c9e799c9b5d167",
+      "bytes": 71331
     },
     {
       "path": "results/depth_sweep_original_resnet_step_parity.json",
@@ -822,8 +822,8 @@
     },
     {
       "path": "results/reporting_manifest.json",
-      "sha256": "2cc241710368bec868ccc9b5f8fa2c32307368ee6ce7b5d0bd4546aac9743adb",
-      "bytes": 1822
+      "sha256": "cc1887cd79ee2f4f41edccb0397b9c12030763fcdbf974a24bcd224fb1ad9626",
+      "bytes": 1983
     },
     {
       "path": "results/reproduction_ledger.json",

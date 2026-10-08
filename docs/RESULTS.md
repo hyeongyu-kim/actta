@@ -38,7 +38,7 @@ paper target; at two-decimal precision 4/8 are no worse and 3/8 match.
 The remaining differences are retained. This distinguishes exact differences
 from rounded matches; neither establishes the paper's three-seed statistics.
 
-![Measured activation-depth curves](../results/depth_sweep_curve.png)
+![Measured activation-depth curves](../results/depth_sweep_measured.png)
 
 The figure shows the completed measurements only. Paper comparisons remain
 in the numerical table above.

@@ -78,7 +78,7 @@ approximately **10%, not 0%**. The optional 10% YAMLs are implemented but have
 not been measured here. ViT's 50/75/100% errors match Table 4 at two decimals;
 remaining differences are reported in [the results](docs/RESULTS.md).
 
-![Measured activation-depth curves](results/depth_sweep_curve.png)
+![Measured activation-depth curves](results/depth_sweep_measured.png)
 
 ## Other measured configurations
 

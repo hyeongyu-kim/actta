@@ -19,17 +19,17 @@
       "bytes": 7709
     },
     {
-      "path": "results/depth_sweep_curve.png",
+      "path": "results/depth_sweep_measured.png",
       "sha256": "0d9ecfe15978f28ed166cd103448525d25ed5ac74bd0f638b29c69ab1d6fec41",
       "bytes": 153176
     },
     {
-      "path": "results/depth_sweep_curve.pdf",
+      "path": "results/depth_sweep_measured.pdf",
       "sha256": "2b4e8bb05ce90c9029e704521d278a7245354d4bdd1b415804561f6cf484aeb0",
       "bytes": 20078
     },
     {
-      "path": "results/depth_sweep_curve.svg",
+      "path": "results/depth_sweep_measured.svg",
       "sha256": "d55105fd7ece40ca01c18044b21c3df3333c84157f89de2d00c9e799c9b5d167",
       "bytes": 71331
     },
@@ -48,5 +48,6 @@
       "sha256": "86912ebc2ebebfbeb81cbae56819af53dfaa8830cfa170cedbeab75938579de0",
       "bytes": 20132
     }
-  ]
+  ],
+  "presentation_update": "Renamed measured figure assets and documentation links to avoid reuse of the former comparison-image URL in GitHub clients."
 }
