@@ -27,8 +27,8 @@
     },
     {
       "path": "README.md",
-      "sha256": "6920f7c621bcdc65193507a67ad3127d580acb6a25b4ff5cc1a528e6674baca5",
-      "bytes": 6533
+      "sha256": "b4ac12912713ea0e5de1b35827a447a09b3591a46937b08d8ac88a94918ade2e",
+      "bytes": 5124
     },
     {
       "path": "THIRD_PARTY.md",
@@ -192,28 +192,28 @@
     },
     {
       "path": "docs/ARCHITECTURE.md",
-      "sha256": "c9024b9c1d4e31a6cc6662d022973905df925c9188d9ed35eefc610d041dfebb",
-      "bytes": 7144
+      "sha256": "21aab8bf1c98df655249a3c0af6fca04f32c8664302a307629c0246e314efa18",
+      "bytes": 5923
     },
     {
       "path": "docs/FRESH_CLONE_VALIDATION.md",
-      "sha256": "9a09878cf72054af41471c257779191df0c37d1d806d88f4f40c1ff74b7a260c",
-      "bytes": 3983
+      "sha256": "95522cbce44f42e406531d0d47c58f77071c69fa790b49574f1c2fa4643ebe1f",
+      "bytes": 1005
     },
     {
       "path": "docs/REPRODUCIBILITY.md",
-      "sha256": "a8eceb34f0b503387d6914c06428c0be47cddc22317972ad342de54a38f02a1e",
-      "bytes": 9737
+      "sha256": "6161f7b6f1a36c72db51a93bdef02fd8397f97a9cd2892597a9c33128ac7f8a6",
+      "bytes": 8481
     },
     {
       "path": "docs/RESULTS.md",
-      "sha256": "0e36e74ac746d43f679176b79f91b9c02c15ab212927723c3e139d27f51f09c4",
-      "bytes": 9413
+      "sha256": "157947293c921b8ebccc9526c3a3dd829df12bc7b0652ef98a41ec6ea3369399",
+      "bytes": 6189
     },
     {
       "path": "docs/VALIDATION.md",
-      "sha256": "37049e5307b59627b3d862d8b5ea9004fbb3e97b96c7ea54266d76643a37067b",
-      "bytes": 4952
+      "sha256": "a5ddb0968e0a6b973cca6baaa80939a55385b904e4725d24ece6b4de9ad33305",
+      "bytes": 588
     },
     {
       "path": "environment-conda-linux-64.lock.txt",
@@ -237,8 +237,8 @@
     },
     {
       "path": "reference/README.md",
-      "sha256": "de85cc2c06f07684d390318aef9e911bd36413b9b24cc59614c764c03e997efb",
-      "bytes": 1480
+      "sha256": "caeecedd323ea392255ebe29c5b33734940478ddd021631c7614af78230e86c8",
+      "bytes": 869
     },
     {
       "path": "reference/architecture_audit/cfgs/imagenet_c_vit/source.yaml",
@@ -452,8 +452,8 @@
     },
     {
       "path": "results/README.md",
-      "sha256": "0d7923250bdb143d2c357fc3e35a8cb7e8d1146ab10a72f92727bc5e0b143b60",
-      "bytes": 2897
+      "sha256": "c81e55c4e7c78f7e8baae971f236a2cee741cadf7054356e1fe1f6ee2cd006d2",
+      "bytes": 1697
     },
     {
       "path": "results/architecture_audit_summary.csv",

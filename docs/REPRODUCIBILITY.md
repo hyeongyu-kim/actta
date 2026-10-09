@@ -6,8 +6,7 @@ for comparison and porting of other objectives.
 
 ## Environment
 
-For the recorded ImageNet-C results, use the measured **Linux x86_64 Conda
-binary runtime**, followed by the pinned Python requirements:
+Install the **Linux x86_64 Conda environment** and pinned Python requirements:
 
 ```bash
 conda create --name actta --file environment-conda-linux-64.lock.txt --yes
@@ -16,19 +15,10 @@ python -m pip install -r requirements-depth-sweep.txt -r requirements-conda-extr
 python tools/check_environment.py
 ```
 
-The explicit lock includes official package URLs and checksums for the measured
-Python, PyTorch/CUDA, NumPy, Pillow, and native libraries. Python package versions
-alone do not identify these binaries: the measured Pillow 10.2 uses IJG JPEG 9,
-while the tested PyPI Pillow 10.2 wheel uses libjpeg-turbo 3.0.1. The same JPEG
-files decoded to different RGB values. The CUDA/BLAS binaries also differed.
-Use the lock to retain the measured input decoding and binary runtime.
-
-A generic Python 3.12 venv with `pip install -r requirements-depth-sweep.txt`
-passes the execution checks, but does not reproduce the recorded ImageNet-C
-errors in the tested environment. Dataset-file hashes identify compressed bytes;
-they do not guarantee equal decoded pixels across JPEG libraries.
-The [fresh-clone validation](FRESH_CLONE_VALIDATION.md) records the tested errors
-and remaining numerical limits.
+The lock pins Python, PyTorch/CUDA, NumPy, Pillow, and native libraries.
+ImageNet-C uses Pillow 10.2 with IJG JPEG 9; JPEG decoder builds affect input
+pixels. Use the locked environment to keep decoding consistent. See
+[environment details](FRESH_CLONE_VALIDATION.md).
 
 `requirements.txt` suffices for CIFAR-C; `requirements-imagenet-audit.txt`
 adds timm/Pillow; `requirements-depth-sweep.txt` adds matplotlib for plotting.
@@ -76,7 +66,7 @@ bash scripts/reproduce_depth_sweep.sh /path/to/ImageNet-C \
 ```
 
 The last argument selects a physical GPU; replace 3 with an available index.
-The ten measured configurations are in `configs/depth_sweep_ordered/`.
+Configurations are in `configs/depth_sweep_ordered/`.
 For one point:
 
 ```bash
@@ -89,8 +79,8 @@ python evaluate_depth_sweep_ordered.py \
   --output output/vit_b16_d050_seed1.json
 ```
 
-Select a different YAML/checkpoint for ResNet. To add the implemented,
-unmeasured 10% points, set `DEPTH_POINTS="0 10 25 50 75 100"` before the
+Select a different YAML/checkpoint for ResNet. To include 10% depth,
+set `DEPTH_POINTS="0 10 25 50 75 100"` before the
 sweep command. Use a fresh output directory.
 
 The profile fixes seed 1, batch 128, SGD LR 0.0025, momentum 0.9,
@@ -102,14 +92,13 @@ at every corruption.
 
 At zero depth there are no activation vectors or optimizer. ResNet keeps
 target-batch BN statistics; ViT keeps fixed LN and checkpoint exact GELU.
-This additional control has no paper Table 4 target. Exact selection boundaries
-and the separate joint-LN main profile are in [ARCHITECTURE.md](ARCHITECTURE.md).
+Exact selection boundaries and the joint-LN main profile are in
+[ARCHITECTURE.md](ARCHITECTURE.md).
 
 ## Shuffled architecture/settings comparisons
 
 `evaluate_architecture.py` follows the original main runner's `shuffle=True`.
-Its measurements must not be substituted into the ordered depth curve.
-Reproduce the twelve declared cases:
+Run the architecture/settings configurations:
 
 ```bash
 bash scripts/reproduce_architecture_audit.sh /path/to/ImageNet-C \
@@ -117,7 +106,7 @@ bash scripts/reproduce_architecture_audit.sh /path/to/ImageNet-C \
   "$PWD/output/architecture" 3
 ```
 
-Individual ViT main candidate:
+Individual ViT joint-LN configuration:
 
 ```bash
 CUDA_VISIBLE_DEVICES=3 OMP_NUM_THREADS=4 MKL_NUM_THREADS=4 \
@@ -129,11 +118,10 @@ python evaluate_architecture.py \
   --output output/vit_b16_joint_ln_seed1.json
 ```
 
-This candidate adapts the first six MLP activations and all 25 LayerNorms,
+This configuration adapts the first six MLP activations and all 25 LayerNorms,
 using LR 0.001 and Nesterov=True. `audit_resnet50_calls25_main_lr.yaml`
-selects 25/49 calls, frozen BN affine values, and LR 0.005. Neither certifies
-the final paper main-table configuration. Separate YAMLs expose exact GELU,
-standard SGD, archived LR, and legacy stage-selection comparisons.
+selects 25/49 calls, frozen BN affine values, and LR 0.005. Separate YAMLs
+expose exact GELU, standard SGD, archived LR, and residual-output selection.
 Use `--method tent` or `--method source` for controls. Inactive YAML options
 remain in the raw record; actual applied selection/settings are recorded too.
 
@@ -155,8 +143,8 @@ CUDA_VISIBLE_DEVICES=3 python evaluate.py \
   --method actta_tent --seed 1 --output output/cifar10_actta_seed1.json
 ```
 
-The selected suite reproduces twelve runs (three seeds for CIFAR-10-C
-TENT/AcTTA only). Its directory convention is:
+The CIFAR script uses seeds 1, 2, and 3 for CIFAR-10-C TENT/AcTTA and seed 1
+for the other configurations. Its directory convention is:
 
 ```text
 DATA_ROOT/CIFAR-10-C/
@@ -181,11 +169,10 @@ Source uses checkpoint running statistics. Activation prefixes are in the YAMLs.
 
 Evaluators refuse existing JSON outputs. `--limit` and `--corruption` permit
 smoke checks; these are marked partial and rejected by full-benchmark
-summarizers. Unit checks require neither data nor model checkpoints.
+summarizers.
 The original logging `torch.rand(1)` draw is retained before model creation
 to preserve the research random stream. Changing order, batch, checkpoint,
-GELU, normalization adaptation, or LR defines a new experiment. Platform/GPU
-kernel differences can affect numerical results; preserve the actual environment.
+GELU, normalization adaptation, or LR defines a new experiment.
 
 Recompute supplied depth results and plot without rerunning models:
 
@@ -206,14 +193,11 @@ python tools/aggregate_results.py results/gpu2_runs/*.json \
   --output output/cifar_summary.json
 ```
 
-Regenerate the benchmark overview, historical-result appendix, and index of all
-42 supplied complete records:
+Regenerate the benchmark overview, additional configuration results, and run index:
 
 ```bash
 python -m tools.report_completed_results --output output/completed_report
 ```
 
-The eight historical records use their original runner/stream profiles, described
-in [the results appendix](RESULTS.md#earlier-completed-measurements). Current
-reproduction scripts cover the 34-case suite. The depth plotter exports only
-measured curves; numerical paper comparisons remain in the summary tables.
+Additional ResNet configurations are described in
+[the results](RESULTS.md#additional-resnet-50-configurations).

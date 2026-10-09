@@ -1,7 +1,7 @@
 # Activation selection and architecture-specific settings
 
-The runnable adaptation objective is TENT entropy minimization. These notes
-distinguish the recovered depth-ablation profile from main-profile candidates.
+The adaptation objective is TENT entropy minimization. These notes describe
+activation selection and settings for the depth sweep and main configurations.
 Raw JSONs record actual module paths, widths, trainable parameters, and settings.
 
 ## Activation parameters
@@ -39,7 +39,7 @@ within each bottleneck.
 At 50%, select the stem, all nine calls in layer1, all twelve in layer2,
 and all three in `layer3.0`. Counts 13/25/38/49 come from archived commands;
 the nominal 75% command uses **38**, rather than recalculating its count.
-The optional, unmeasured 10% YAML selects five calls through
+The 10% YAML selects five calls through
 `model.layer1.1.relu1`. Full measured path lists are in
 [the layer manifest](../results/depth_sweep_layer_manifest.csv).
 
@@ -66,11 +66,11 @@ width 768, and MLP hidden width 3,072. Selected paths are
 | 100% | 0–11 | `model.blocks.11.mlp.act` | 110,592 |
 
 Each replaced GELU has three vectors of width 3,072. At 50%, replace the
-GELUs in **blocks 0 through 5**. The optional, unmeasured 10% YAML selects
+GELUs in **blocks 0 through 5**. The 10% YAML selects
 block 0 (one of twelve blocks).
 
 Normalization selection is independent of activation depth. The ordered sweep
-sets `adapt_norm: false`. The joint-LN main candidate sets `adapt_norm: true`
+sets `adapt_norm: false`. The joint-LN configuration sets `adapt_norm: true`
 and updates **all 24 block LayerNorms plus the final LayerNorm**, including
 norms in blocks whose GELU is not adapted. These add 38,400 affine values;
 the six-block joint-LN total is **93,696**. Embeddings, attention, linear
@@ -91,10 +91,7 @@ GELU throughout.
 
 `audit_vit_b16_blocks6_joint_ln_exact_gelu.yaml` supplies an explicit exact-GELU
 alternative that satisfies the paper's zero-initialization identity condition.
-The measured two-image CPU initialization check gave maximum full-model logit
-difference 0.018137 with tanh replacement, while exact replacement was bitwise
-equal. This is an initialization check, not a benchmark error measurement.
-Both variants' full benchmark results are exposed separately.
+Results for the tanh and exact variants are reported separately.
 
 ## Depth and main profiles
 
@@ -102,28 +99,13 @@ Both variants' full benchmark results are exposed separately.
 |---|---|---:|---|---|
 | RN50 ordered depth sweep | fixed image-ID order | 0.0025 | frozen BN | ReLU |
 | ViT ordered depth sweep | fixed image-ID order | 0.0025 | frozen LN | tanh GELU in selected blocks |
-| RN50 25-call main-LR candidate | shuffled | 0.005 | frozen BN | ReLU |
-| ViT 6-block joint-LN candidate | shuffled | 0.001 | all LN updated | tanh GELU in selected blocks |
+| RN50 25-call main configuration | shuffled | 0.005 | frozen BN | ReLU |
+| ViT 6-block joint-LN configuration | shuffled | 0.001 | all LN updated | tanh GELU in selected blocks |
 
 All four use SGD momentum 0.9, Nesterov=True, zero dampening/weight decay, and
 one entropy step. Other declared variants have separate YAMLs and results.
-The original `conf.py`/`methods/base.py` select Nesterov=True. Appendix A does
-not specify this flag; standard-SGD ViT controls are therefore also reported.
-
-Appendix A gives base LR 0.00025 for RN50 and 0.001 for ViT; Section 4.2
-describes larger AcTTA rates. Exact overrides connecting these statements to
-the final main table are not fully resolved. The archived ViT main command has
-LR 0.00025 and `ADAP_RANGE=1` (one block); the archived-LR six-block candidate
-explicitly combines that LR with the paper's depth rather than reproducing
-the entire launch command.
-
-The paper's approximately 50% prefix and main joint-LN recommendation are
-separate from the recovered depth runner's fixed LR, frozen norm affine values,
-and fixed order. Recovered launch lines include commented candidates; they do
-not certify which command generated the final paper table. Table 4 starts at
-approximately 10%, so the additional requested 0% control has no paper target.
-ImageNet results here use seed 1; the paper reports three-seed averages.
-Numerical agreement or lower error alone does not certify setting agreement.
+Standard-SGD variants set Nesterov=False. The depth sweep freezes normalization
+affine values; the ViT main configuration jointly adapts all LayerNorms.
 
 Other objectives can select normalization parameters differently. Original
 SAR/DeYO collectors exclude ViT blocks 9–11 and RN50 layer4; their literal

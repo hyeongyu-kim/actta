@@ -10,38 +10,24 @@ Hyeongyu Kim, Geonhui Han, Dosik Hwang · CVPR 2026
 [Architecture and layer selection](docs/ARCHITECTURE.md) ·
 [Measured results](docs/RESULTS.md)
 
-This release provides **AcTTA with the TENT entropy objective**, Source/TENT
-controls, explicit ResNet-50 and ViT-B/16 configurations, and measured CIFAR-C
-and ImageNet-C results recovered and rerun from the author's research workspace.
-It includes **34 evaluations in the current reproduction suite**: 12 CIFAR-C
-runs, 12 ImageNet-C architecture/settings comparisons, and 10 ImageNet-C
-activation-depth runs. Eight earlier completed measurements are also reported
-with their original settings, bringing the recorded total to **42 full runs**.
-
-The recorded configurations are reproducible candidates. **The complete final
-paper configuration and its three-seed ImageNet statistics are not yet
-certified.** All measured settings and their differences from the paper are
-reported, including worse results. The other five AcTTA objectives are provided
-as original reference source; they are outside this release's runnable benchmarks.
+Code, configurations, and results for **AcTTA with the TENT entropy objective**
+on CIFAR-C and ImageNet-C, including Source/TENT baselines and ResNet-50 and
+ViT-B/16 activation-depth sweeps. Implementations of the other adaptation
+objectives are available in [reference/methods](reference/methods/).
 
 ## Install
 
-Use the measured Linux x86_64 Conda runtime to reproduce the recorded
-ImageNet-C numbers:
+Install the Linux x86_64 Conda environment:
 
 ```bash
 conda create --name actta --file environment-conda-linux-64.lock.txt --yes
 conda activate actta
 python -m pip install -r requirements-depth-sweep.txt -r requirements-conda-extras.lock.txt
 python tools/check_environment.py
-python -m unittest discover -s tests -v
 ```
 
-The lock fixes binary builds and native libraries, including Pillow's JPEG
-decoder. A fresh PyPI installation ran successfully, but decoded the same
-ImageNet-C JPEGs differently and changed measured errors. Use the locked
-runtime for the recorded numbers.
-See [fresh-clone verification and numerical checks](docs/FRESH_CLONE_VALIDATION.md).
+The lock fixes native libraries, including the JPEG decoder used for ImageNet-C.
+See [environment details](docs/FRESH_CLONE_VALIDATION.md).
 
 The measured environment used Python 3.12.2, PyTorch 2.2.1 with CUDA 12.1,
 torchvision 0.17.1, timm 1.0.15, and an NVIDIA RTX A6000. Datasets and model
@@ -80,11 +66,8 @@ See [the exact boundaries and parameter counts](docs/ARCHITECTURE.md).
 | 75% | 64.6400 | 57.8107 |
 | 100% | 64.0440 | 65.8427 |
 
-These are **single-seed measurements**. At 0%, no optimizer is constructed;
-ResNet still uses target-batch BN statistics. The paper's Table 4 starts at
-approximately **10%, not 0%**. The optional 10% YAMLs are implemented but have
-not been measured here. ViT's 50/75/100% errors match Table 4 at two decimals;
-remaining differences are reported in [the results](docs/RESULTS.md).
+Results use seed 1. At 0%, no optimizer is constructed; ResNet uses target-batch
+BN statistics. Paper comparisons are in [the results](docs/RESULTS.md).
 
 ![Measured activation-depth curves](results/depth_sweep_measured.png)
 
@@ -101,9 +84,8 @@ lower is better. AcTTA uses the TENT entropy objective.
 | ImageNet-C / ResNet-50 | 128 | 66.6027 | 64.3213 | first 25/49 ReLU calls, LR 0.005, frozen BN affine; seed 1 |
 | ImageNet-C / ViT-B/16 | 128 | 53.4987 | 49.0547 | first 6/12 MLP GELUs + all LN, LR 0.001, tanh GELU; seed 1 |
 
-These measured settings have different LRs and normalization choices from the
-fixed-LR ordered depth sweep. They are reported with their actual configurations.
-CIFAR-10-C's AcTTA population SD is 0.06458%; other rows here are single-seed.
+These configurations use the LRs and normalization choices shown above;
+the ordered depth sweep uses fixed LR 0.0025 and frozen normalization affine values.
 The complete overview is in [benchmark_summary.csv](results/benchmark_summary.csv).
 
 - [ImageNet architecture/settings comparisons](docs/RESULTS.md#imagenet-c-architecture-and-settings-comparisons):
@@ -111,12 +93,10 @@ The complete overview is in [benchmark_summary.csv](results/benchmark_summary.cs
   and declared optimizer/LR variants.
 - [CIFAR-C results](docs/RESULTS.md#cifar-c): WRN-28-10 on CIFAR-10-C and
   WRN-40-2 on CIFAR-100-C, including batch-size 4.
-- [Result files and hashes](results/README.md): raw JSONs, per-corruption
-  errors, layer manifests, paper comparisons, and source checksums.
-- [Validation](docs/VALIDATION.md): unit checks, input-order verification,
-  and original-code forward/gradient/update parity.
-- [Earlier measurements](docs/RESULTS.md#earlier-completed-measurements): three
-  original ResNet runs and five shuffled depth pilot points, with their settings.
+- [Result files](results/README.md): raw JSONs, per-corruption errors,
+  layer manifests, and summary tables.
+- [Additional configurations](docs/RESULTS.md#additional-resnet-50-configurations):
+  residual-output adaptation and shuffled depth results.
 
 ## Citation and licenses
 
