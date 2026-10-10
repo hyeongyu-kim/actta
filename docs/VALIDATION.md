@@ -15,3 +15,5 @@ against `results/publication_manifest.json`.
 
 Commands for regenerating summaries and figures are in
 [the reproduction guide](REPRODUCIBILITY.md#output-checks-and-aggregation).
+See [repository maintenance](DEVELOPMENT.md) for module responsibilities and
+adding experiments.

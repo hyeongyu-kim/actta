@@ -10,6 +10,9 @@ Hyeongyu Kim, Geonhui Han, Dosik Hwang · CVPR 2026
 [Architecture and layer selection](docs/ARCHITECTURE.md) ·
 [Measured results](docs/RESULTS.md)
 
+[Configuration index](configs/README.md) ·
+[Repository layout and maintenance](docs/DEVELOPMENT.md)
+
 Code, configurations, and results for **AcTTA with the TENT entropy objective**
 on CIFAR-C and ImageNet-C, including Source/TENT baselines and ResNet-50 and
 ViT-B/16 activation-depth sweeps. Implementations of the other adaptation

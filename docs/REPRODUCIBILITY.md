@@ -4,6 +4,10 @@ Run commands from the repository root. Active evaluators implement Source,
 TENT, and AcTTA_TENT. Original snapshots under `reference/methods/` are supplied
 for comparison and porting of other objectives.
 
+Use [the configuration index](../configs/README.md) to select a profile.
+`python tools/run_suite.py --help` lists the common suite launcher options;
+see [suite usage](DEVELOPMENT.md#run-a-suite).
+
 ## Environment
 
 Install the **Linux x86_64 Conda environment** and pinned Python requirements:
