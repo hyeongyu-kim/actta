@@ -2,48 +2,33 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <meta name="description" content="AcTTA: Rethinking Test-Time Adaptation via Dynamic Activation">
+  <meta name="description" content="AcTTA adapts activation centers and slopes at test time. CVPR 2026 paper, code, video, and results.">
   <meta name="keywords" content="Test-Time Adaptation, TTA, Activation, Domain Shift, AcTTA">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>AcTTA | Project Page</title>
+  <meta property="og:title" content="AcTTA: Rethinking Test-Time Adaptation via Dynamic Activation">
+  <meta property="og:description" content="Activation adaptation for test-time learning. CVPR 2026 paper, code, video, and results.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://hyeongyu-kim.github.io/actta/">
+  <meta property="og:image" content="https://hyeongyu-kim.github.io/actta/docs/assets/actta_overview.png">
+  <meta name="twitter:card" content="summary_large_image">
 
-  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+  <title>AcTTA | CVPR 2026</title>
+  <link rel="canonical" href="https://hyeongyu-kim.github.io/actta/">
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="./static/css/bulma.min.css">
-  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
-  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
-  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <!-- Button icons: Font Awesome Free, CC BY 4.0; paths from the bundled icon set. -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
-  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="stylesheet" href="./static/css/index.css?v=d583383d4678">
 
-  <!-- 브라우저 탭 아이콘 -->
-  <!-- 원하는 아이콘 파일을 static/images/favicon.png 로 넣어두면 됨 -->
-  <link rel="icon" type="image/png" href="./static/images/actta_icon.svg">
-
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script defer src="./static/js/fontawesome.all.min.js"></script>
-  <script src="./static/js/bulma-carousel.min.js"></script>
-  <script src="./static/js/bulma-slider.min.js"></script>
-  <script src="./static/js/index.js"></script>
+  <link rel="icon" type="image/svg+xml" href="./static/images/actta_icon.svg">
 </head>
 
 <body>
 
-<nav class="navbar" role="navigation" aria-label="main navigation">
-  <div class="navbar-brand">
-    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
-      <span aria-hidden="true"></span>
-      <span aria-hidden="true"></span>
-      <span aria-hidden="true"></span>
-    </a>
-  </div>
-  <div class="navbar-menu">
-    <div class="navbar-start" style="flex-grow: 1; justify-content: center;"></div>
-  </div>
-</nav>
-
-<section class="hero">
+<header class="hero">
   <div class="hero-body">
     <div class="container is-max-desktop">
       <div class="columns is-centered">
@@ -59,7 +44,7 @@
 
           <div class="is-size-5 publication-authors">
           <span class="author-block">
-            <a href="https://github.com/hyeongyu-kim" target="_blank">Hyeongyu Kim</a><sup>1,*</sup>,
+            <a href="https://github.com/hyeongyu-kim" target="_blank" rel="noopener noreferrer">Hyeongyu Kim</a><sup>1,*</sup>,
           </span>
           <span class="author-block">
             Geonhui Han<sup>1,*</sup>,
@@ -88,40 +73,49 @@
             <div class="publication-links">
 
               <span class="link-block">
-                <span class="button is-normal is-rounded is-dark is-static">
-                  <span class="icon">
-                    <i class="fas fa-file-pdf"></i>
+                <a href="https://arxiv.org/pdf/2603.26096" target="_blank" rel="noopener noreferrer"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon" aria-hidden="true">
+                    <svg viewBox="0 0 384 512" width="16" height="16" fill="currentColor" focusable="false" aria-hidden="true">
+                      <path d="M369.9 97.9L286 14C277 5 264.8-.1 252.1-.1H48C21.5 0 0 21.5 0 48v416c0 26.5 21.5 48 48 48h288c26.5 0 48-21.5 48-48V131.9c0-12.7-5.1-25-14.1-34zM332.1 128H256V51.9l76.1 76.1zM48 464V48h160v104c0 13.3 10.7 24 24 24h104v288H48zm250.2-143.7c-12.2-12-47-8.7-64.4-6.5-17.2-10.5-28.7-25-36.8-46.3 3.9-16.1 10.1-40.6 5.4-56-4.2-26.2-37.8-23.6-42.6-5.9-4.4 16.1-.4 38.5 7 67.1-10 23.9-24.9 56-35.4 74.4-20 10.3-47 26.2-51 46.2-3.3 15.8 26 55.2 76.1-31.2 22.4-7.4 46.8-16.5 68.4-20.1 18.9 10.2 41 17 55.8 17 25.5 0 28-28.2 17.5-38.7zm-198.1 77.8c5.1-13.7 24.5-29.5 30.4-35-19 30.3-30.4 35.7-30.4 35zm81.6-190.6c7.4 0 6.7 32.1 1.8 40.8-4.4-13.9-4.3-40.8-1.8-40.8zm-24.4 136.6c9.7-16.9 18-37 24.7-54.7 8.3 15.1 18.9 27.2 30.1 35.5-20.8 4.3-38.9 13.1-54.8 19.2zm131.6-5s-5 6-37.3-7.8c35.1-2.6 40.9 5.4 37.3 7.8z"></path>
+                    </svg>
                   </span>
-                  <span>Paper Coming Soon</span>
-                </span>
+                  <span>Paper</span>
+                </a>
               </span>
 
               <span class="link-block">
-                <span class="button is-normal is-rounded is-dark is-static">
-                  <span class="icon">
+                <a href="https://arxiv.org/abs/2603.26096" target="_blank" rel="noopener noreferrer"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon" aria-hidden="true">
                     <i class="ai ai-arxiv"></i>
                   </span>
-                  <span>arXiv Coming Soon</span>
-                </span>
+                  <span>arXiv</span>
+                </a>
               </span>
 
               <span class="link-block">
-                <a href="https://github.com/hyeongyu-kim/actta/" target="_blank"
+                <a href="https://github.com/hyeongyu-kim/actta/" target="_blank" rel="noopener noreferrer"
                    class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon">
-                    <i class="fab fa-github"></i>
+                  <span class="icon" aria-hidden="true">
+                    <svg viewBox="0 0 496 512" width="16" height="16" fill="currentColor" focusable="false" aria-hidden="true">
+                      <path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"></path>
+                    </svg>
                   </span>
                   <span>Code</span>
                 </a>
               </span>
 
               <span class="link-block">
-                <span class="button is-normal is-rounded is-dark is-static">
-                  <span class="icon">
-                    <i class="fab fa-youtube"></i>
+                <a href="https://www.youtube.com/watch?v=6sSx5IOpuio" target="_blank" rel="noopener noreferrer"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon" aria-hidden="true">
+                    <svg viewBox="0 0 576 512" width="16" height="16" fill="currentColor" focusable="false" aria-hidden="true">
+                      <path d="M549.655 124.083c-6.281-23.65-24.787-42.276-48.284-48.597C458.781 64 288 64 288 64S117.22 64 74.629 75.486c-23.497 6.322-42.003 24.947-48.284 48.597-11.412 42.867-11.412 132.305-11.412 132.305s0 89.438 11.412 132.305c6.281 23.65 24.787 41.5 48.284 47.821C117.22 448 288 448 288 448s170.78 0 213.371-11.486c23.497-6.321 42.003-24.171 48.284-47.821 11.412-42.867 11.412-132.305 11.412-132.305s0-89.438-11.412-132.305zm-317.51 213.508V175.185l142.739 81.205-142.739 81.201z"></path>
+                    </svg>
                   </span>
-                  <span>Video Coming Soon</span>
-                </span>
+                  <span>Video</span>
+                </a>
               </span>
 
             </div>
@@ -131,9 +125,32 @@
       </div>
     </div>
   </div>
+</header>
+
+<main>
+<section class="section overview" id="method" aria-labelledby="method-title">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3 has-text-centered" id="method-title">Activation adaptation</h2>
+    <figure class="project-figure">
+      <img src="./docs/assets/actta_overview.png" width="1030" height="1005"
+           alt="AcTTA base activations, adaptive slopes, derivatives, and activation-center shifts"
+           decoding="async">
+      <figcaption>
+        Learnable activation centers and slopes
+        (<a href="https://arxiv.org/html/2603.26096v1#S3.F1" target="_blank" rel="noopener noreferrer">Figure 1</a>).
+      </figcaption>
+    </figure>
+    <div class="content section-text">
+      <p>
+        AcTTA makes the activation center and the positive and negative slopes learnable.
+        Zero-initialized activation parameters recover the original pretrained activation.
+        At test time, these parameters adjust to target inputs while the backbone weights remain fixed.
+      </p>
+    </div>
+  </div>
 </section>
 
-<section class="section">
+<section class="section" id="abstract">
   <div class="container is-max-desktop">
     <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths">
@@ -166,20 +183,86 @@
   </div>
 </section>
 
-<section class="section">
+<section class="section" id="video" aria-labelledby="video-title">
   <div class="container is-max-desktop">
-    <div class="columns is-centered has-text-centered">
-      <div class="column is-four-fifths">
-        <h2 class="title is-3">Coming Soon</h2>
-        <div class="content has-text-centered">
-          <p>
-            Additional contents including method details, experimental results, figures, BibTeX, and other resources will be released soon.
-          </p>
-        </div>
-      </div>
+    <h2 class="title is-3 has-text-centered" id="video-title">Video</h2>
+    <div class="publication-video">
+      <iframe src="https://www.youtube-nocookie.com/embed/6sSx5IOpuio"
+              title="AcTTA: CVPR 2026 presentation" loading="lazy"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    </div>
+    <p class="has-text-centered video-link">
+      <a href="https://www.youtube.com/watch?v=6sSx5IOpuio" target="_blank" rel="noopener noreferrer">Watch on YouTube</a>
+    </p>
+  </div>
+</section>
+
+<section class="section" id="results" aria-labelledby="results-title">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3 has-text-centered" id="results-title">Results</h2>
+    <div class="table-container">
+      <table class="table is-fullwidth results-table">
+        <caption>
+          Classification error (%), severity 5, batch size 128.
+          Means over three seeds from
+          <a href="https://arxiv.org/html/2603.26096v1#S4.T5" target="_blank" rel="noopener noreferrer">Table 5</a>.
+        </caption>
+        <thead>
+          <tr><th scope="col">Dataset</th><th scope="col">Backbone</th><th scope="col">TENT</th><th scope="col">AcTTA-TENT</th></tr>
+        </thead>
+        <tbody>
+          <tr><th scope="row">CIFAR-10-C</th><td>WRN-28</td><td>18.51</td><td><strong>17.03</strong></td></tr>
+          <tr><th scope="row">CIFAR-100-C</th><td>WRN-40</td><td>35.25</td><td><strong>33.81</strong></td></tr>
+          <tr><th scope="row">ImageNet-C</th><td>ResNet-50 (BN)</td><td>66.50</td><td><strong>64.95</strong></td></tr>
+          <tr><th scope="row">ImageNet-C</th><td>ViT-B/16 (LN)</td><td>53.85</td><td><strong>51.79</strong></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="section-text">
+      Additional backbones, adaptation objectives, and ablations are reported in the
+      <a href="https://arxiv.org/pdf/2603.26096" target="_blank" rel="noopener noreferrer">paper</a>.
+    </p>
+  </div>
+</section>
+
+<section class="section" id="code" aria-labelledby="code-title">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3 has-text-centered" id="code-title">Code</h2>
+    <div class="content section-text">
+      <p>
+        Code, configurations, and reference results are available on
+        <a href="https://github.com/hyeongyu-kim/actta" target="_blank" rel="noopener noreferrer">GitHub</a>.
+        Supported experiments cover CIFAR-C with Wide ResNets and ImageNet-C with ResNet-50 and ViT-B/16,
+        including activation-depth sweeps at 0, 25, 50, 75, and 100%.
+      </p>
+      <p>
+        At 50% activation depth, ResNet-50 adapts the first 25 of 49 independent ReLU calls;
+        ViT-B/16 adapts the first 6 of 12 MLP GELUs.
+        The main CNN configuration freezes BN affine parameters, while the main ViT configuration
+        jointly adapts LN affine parameters and activations.
+      </p>
+      <p>
+        <a href="https://github.com/hyeongyu-kim/actta/blob/main/docs/REPRODUCIBILITY.md" target="_blank" rel="noopener noreferrer">Setup and execution</a>
+        &middot;
+        <a href="https://github.com/hyeongyu-kim/actta/blob/main/docs/ARCHITECTURE.md" target="_blank" rel="noopener noreferrer">Architecture settings</a>
+      </p>
     </div>
   </div>
 </section>
+
+<section class="section" id="citation" aria-labelledby="citation-title">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3 has-text-centered" id="citation-title">BibTeX</h2>
+    <pre class="bibtex"><code>@article{kim2026actta,
+  title={AcTTA: Rethinking Test-Time Adaptation via Dynamic Activation},
+  author={Kim, Hyeongyu and Han, Geonhui and Hwang, Dosik},
+  journal={arXiv preprint arXiv:2603.26096},
+  year={2026}
+}</code></pre>
+  </div>
+</section>
+</main>
 
 <footer class="footer">
   <div class="container">
@@ -189,6 +272,10 @@
       </p>
       <p>
         Website template adapted from publicly available academic project page templates.
+      </p>
+      <p>
+        Website licensed under
+        <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener noreferrer">CC BY-SA 4.0</a>.
       </p>
     </div>
   </div>
