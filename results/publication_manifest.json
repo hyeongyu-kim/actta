@@ -27,8 +27,8 @@
     },
     {
       "path": "README.md",
-      "sha256": "78af5981926bd4575088bbf9e7cfb7d42c5265fa37621585be7e8af5f4ab95dd",
-      "bytes": 5226
+      "sha256": "4a114abadc0c21d78783555fa3eab06afc33b05155ac05aafcb4b09e682a6d80",
+      "bytes": 4030
     },
     {
       "path": "THIRD_PARTY.md",
@@ -197,8 +197,8 @@
     },
     {
       "path": "docs/ARCHITECTURE.md",
-      "sha256": "21aab8bf1c98df655249a3c0af6fca04f32c8664302a307629c0246e314efa18",
-      "bytes": 5923
+      "sha256": "3159002496141294de1a7f70e2e16f46337d0f49b214bd88f4ac89d3a82c6efd",
+      "bytes": 5419
     },
     {
       "path": "docs/DEVELOPMENT.md",
@@ -212,18 +212,23 @@
     },
     {
       "path": "docs/REPRODUCIBILITY.md",
-      "sha256": "bf8ce05b64c637ca1f5060d878d5d344937056d75d5616d0518899026070671b",
-      "bytes": 8678
+      "sha256": "88737119d2d3e093814af7e2d8be04e1982d83075289c212169f34fe783c8297",
+      "bytes": 7939
     },
     {
       "path": "docs/RESULTS.md",
-      "sha256": "157947293c921b8ebccc9526c3a3dd829df12bc7b0652ef98a41ec6ea3369399",
-      "bytes": 6189
+      "sha256": "aa263065529e1fc4f8831be98b73d634902974e6821ab8ff242ce7bdc1669c62",
+      "bytes": 4856
     },
     {
       "path": "docs/VALIDATION.md",
       "sha256": "120cd24627a8b945de0f1d6f4fce5f02a23c4ef3e8b9f8371d3e1941615a1ab4",
       "bytes": 685
+    },
+    {
+      "path": "docs/assets/actta_overview.png",
+      "sha256": "aebc60f1b60e9d9f090c9385e542c80dc852cc7b2ea694f647b6390fc3cd9364",
+      "bytes": 69739
     },
     {
       "path": "environment-conda-linux-64.lock.txt",

@@ -1,12 +1,7 @@
-# Reproducing the supplied configurations
+# Setup and execution
 
-Run commands from the repository root. Active evaluators implement Source,
-TENT, and AcTTA_TENT. Original snapshots under `reference/methods/` are supplied
-for comparison and porting of other objectives.
-
-Use [the configuration index](../configs/README.md) to select a profile.
-`python tools/run_suite.py --help` lists the common suite launcher options;
-see [suite usage](DEVELOPMENT.md#run-a-suite).
+Run commands from the repository root. Evaluators support Source, TENT, and
+AcTTA_TENT. `python tools/run_suite.py --help` lists suite options.
 
 ## Environment
 
@@ -59,8 +54,6 @@ jx_vit_base_p16_224-80ecf9dd.pth
 80ecf9dd5e3a58895e959af554c5666c4e7b4da4410de4f1f2b0025e93435d8c
 ```
 
-Other pretrained variants are not interchangeable with these measurements.
-
 ## Ordered depth sweep
 
 ```bash
@@ -89,8 +82,8 @@ sweep command. Use a fresh output directory.
 
 The profile fixes seed 1, batch 128, SGD LR 0.0025, momentum 0.9,
 Nesterov=True, zero weight decay/dampening, frozen BN/LN affine values, and
-one entropy step per batch. `shuffle=False` retains exact image-ID file order,
-matching the original depth runner. The final eight-image batch is retained.
+one entropy step per batch. `shuffle=False` retains image-ID file order.
+The final eight-image batch is retained.
 Predictions are taken before the optimizer update; model and optimizer reset
 at every corruption.
 
@@ -101,7 +94,7 @@ Exact selection boundaries and the joint-LN main profile are in
 
 ## Shuffled architecture/settings comparisons
 
-`evaluate_architecture.py` follows the original main runner's `shuffle=True`.
+`evaluate_architecture.py` uses `shuffle=True`.
 Run the architecture/settings configurations:
 
 ```bash
@@ -126,8 +119,7 @@ This configuration adapts the first six MLP activations and all 25 LayerNorms,
 using LR 0.001 and Nesterov=True. `audit_resnet50_calls25_main_lr.yaml`
 selects 25/49 calls, frozen BN affine values, and LR 0.005. Separate YAMLs
 expose exact GELU, standard SGD, archived LR, and residual-output selection.
-Use `--method tent` or `--method source` for controls. Inactive YAML options
-remain in the raw record; actual applied selection/settings are recorded too.
+Use `--method tent` or `--method source` for baselines.
 
 ## CIFAR-C
 
@@ -174,9 +166,6 @@ Source uses checkpoint running statistics. Activation prefixes are in the YAMLs.
 Evaluators refuse existing JSON outputs. `--limit` and `--corruption` permit
 smoke checks; these are marked partial and rejected by full-benchmark
 summarizers.
-The original logging `torch.rand(1)` draw is retained before model creation
-to preserve the research random stream. Changing order, batch, checkpoint,
-GELU, normalization adaptation, or LR defines a new experiment.
 
 Recompute supplied depth results and plot without rerunning models:
 

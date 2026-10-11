@@ -5,22 +5,21 @@
 Hyeongyu Kim, Geonhui Han, Dosik Hwang · CVPR 2026
 
 [Paper](https://arxiv.org/abs/2603.26096) ·
-[Project page](https://hyeongyu-kim.github.io/actta/) ·
-[Reproduction guide](docs/REPRODUCIBILITY.md) ·
-[Architecture and layer selection](docs/ARCHITECTURE.md) ·
-[Measured results](docs/RESULTS.md)
+[Project page](https://hyeongyu-kim.github.io/actta/)
 
-[Configuration index](configs/README.md) ·
-[Repository layout and maintenance](docs/DEVELOPMENT.md)
+AcTTA adapts the center and slopes of activation functions during test-time
+adaptation. This repository provides Source, TENT, and AcTTA-TENT experiments
+on CIFAR-C and ImageNet-C.
 
-Code, configurations, and results for **AcTTA with the TENT entropy objective**
-on CIFAR-C and ImageNet-C, including Source/TENT baselines and ResNet-50 and
-ViT-B/16 activation-depth sweeps. Implementations of the other adaptation
-objectives are available in [reference/methods](reference/methods/).
+<p align="center">
+  <img src="docs/assets/actta_overview.png" width="640" alt="AcTTA activation functions, slope modulation, and activation-center shifts">
+</p>
 
-## Install
+Activation parameterization ([Figure 1](https://arxiv.org/html/2603.26096v1#S3.F1)).
 
-Install the Linux x86_64 Conda environment:
+## Environment
+
+Linux x86_64 · Python 3.12.2 · PyTorch 2.2.1 · CUDA 12.1 · timm 1.0.15.
 
 ```bash
 conda create --name actta --file environment-conda-linux-64.lock.txt --yes
@@ -29,77 +28,72 @@ python -m pip install -r requirements-depth-sweep.txt -r requirements-conda-extr
 python tools/check_environment.py
 ```
 
-The lock fixes native libraries, including the JPEG decoder used for ImageNet-C.
-See [environment details](docs/FRESH_CLONE_VALIDATION.md).
+The Conda lock includes the ImageNet-C JPEG decoder and native CUDA libraries.
+Datasets and pretrained checkpoints are supplied separately. Download links,
+preprocessing, and commands are in [Setup and execution](docs/REPRODUCIBILITY.md).
 
-The measured environment used Python 3.12.2, PyTorch 2.2.1 with CUDA 12.1,
-torchvision 0.17.1, timm 1.0.15, and an NVIDIA RTX A6000. Datasets and model
-weights must be obtained separately. Exact checkpoint identifiers, download
-links, preprocessing, and individual-run commands are in the
-[reproduction guide](docs/REPRODUCIBILITY.md).
+## Supported experiments
 
-## ImageNet-C depth sweep
+| Dataset | Backbone | Batch | AcTTA configuration |
+|---|---|---:|---|
+| CIFAR-10-C | WRN-28-10 | 128 | First WRN stage |
+| CIFAR-100-C | WRN-40-2 | 128 / 4 | First two WRN stages |
+| ImageNet-C | ResNet-50 (BN) | 128 | First 25/49 ReLU calls, LR 0.005, frozen BN affine |
+| ImageNet-C | ViT-B/16 | 128 | First 6/12 MLP GELUs + all LN, LR 0.001, tanh GELU |
+| ImageNet-C depth sweep | ResNet-50 / ViT-B/16 | 128 | 0/25/50/75/100%, LR 0.0025, frozen normalization affine |
 
-From the repository root, run both backbones at 0/25/50/75/100% depth:
+At 50% depth, ResNet-50 adapts the first 25 independent ReLU call sites;
+ViT-B/16 adapts the first 6 MLP GELUs. The joint-LN ViT configuration also
+adapts all 25 LayerNorms. See [Architecture settings](docs/ARCHITECTURE.md).
+
+Reference implementations for ETA/EATA, SAR, ROID, CMF, and DeYO are in
+[reference/methods](reference/methods/).
+
+## Run
+
+ImageNet-C depth sweep:
 
 ```bash
-bash scripts/reproduce_depth_sweep.sh /path/to/ImageNet-C \
-  /path/to/resnet50-0676ba61.pth /path/to/jx_vit_base_p16_224-80ecf9dd.pth \
-  "$PWD/output/depth_sweep" 3
+python tools/run_suite.py imagenet-depth \
+  --data-root /path/to/ImageNet-C \
+  --resnet-checkpoint /path/to/resnet50-0676ba61.pth \
+  --vit-checkpoint /path/to/jx_vit_base_p16_224-80ecf9dd.pth \
+  --output output/depth_sweep --gpu 3
 ```
 
-The final argument selects the physical GPU. The script's default is GPU 3;
-set it to the GPU available on your machine. Each point uses severity 5,
-15 corruptions × 5,000 images, batch 128, seed 1, fixed image-ID order,
-SGD LR 0.0025, momentum 0.9, Nesterov, and frozen normalization affine values.
-Only the selected activation vectors are optimized. Model and optimizer reset
-at each corruption. A fresh output directory is required.
+Use `imagenet-settings` with the same checkpoint arguments for architecture
+configurations. Depth runs use fixed image-ID order; architecture runs use
+shuffled order. Both use severity 5, batch 128, seed 1, and per-corruption resets.
 
-**50% depth** means the first **25 of 49 independent ReLU call sites** for
-ResNet-50, and the MLP GELUs of the first **6 of 12 transformer blocks** for
-ViT-B/16. ResNet's shared bottleneck ReLU is split into three call sites before
-selection. Joint LayerNorm adaptation is a separate ViT main-profile option.
-See [the exact boundaries and parameter counts](docs/ARCHITECTURE.md).
+CIFAR-C:
 
-| Requested depth | ResNet-50 error (%) | ViT-B/16 error (%) |
-|---|---:|---:|
-| 0% | 68.1027 | 62.1040 |
-| 25% | 67.0773 | 51.4067 |
-| 50% | 65.8693 | 52.4747 |
-| 75% | 64.6400 | 57.8107 |
-| 100% | 64.0440 | 65.8427 |
+```bash
+python tools/run_suite.py cifar \
+  --data-root /path/to/DATA_ROOT --checkpoint-root /path/to/CHECKPOINT_ROOT \
+  --output output/cifar --gpu 3
+```
 
-Results use seed 1. At 0%, no optimizer is constructed; ResNet uses target-batch
-BN statistics. Paper comparisons are in [the results](docs/RESULTS.md).
+`--gpu` selects the physical GPU. Use a new or empty output directory.
 
-![Measured activation-depth curves](results/depth_sweep_measured.png)
+## Reference results
 
-## Other measured configurations
+Error (%), severity 5. CIFAR-10-C averages seeds 1, 2, and 3; other rows use
+seed 1. Configurations are listed above.
 
-The following entries use the main shuffled stream. Errors are percentages;
-lower is better. AcTTA uses the TENT entropy objective.
+| Dataset / backbone | Batch | TENT | AcTTA-TENT |
+|---|---:|---:|---:|
+| CIFAR-10-C / WRN-28-10 | 128 | 18.4276 | 17.0322 |
+| CIFAR-100-C / WRN-40-2 | 128 | 35.4367 | 33.9793 |
+| CIFAR-100-C / WRN-40-2 | 4 | 57.1500 | 54.8673 |
+| ImageNet-C / ResNet-50 | 128 | 66.6027 | 64.3213 |
+| ImageNet-C / ViT-B/16 | 128 | 53.4987 | 49.0547 |
 
-| Dataset / backbone | Batch | TENT | AcTTA-TENT | AcTTA setting |
-|---|---:|---:|---:|---|
-| CIFAR-10-C / WRN-28-10 | 128 | 18.4276 | 17.0322 | first WRN stage; mean of seeds 1, 2, 3 |
-| CIFAR-100-C / WRN-40-2 | 128 | 35.4367 | 33.9793 | first two WRN stages; seed 1 |
-| CIFAR-100-C / WRN-40-2 | 4 | 57.1500 | 54.8673 | first two WRN stages; seed 1 |
-| ImageNet-C / ResNet-50 | 128 | 66.6027 | 64.3213 | first 25/49 ReLU calls, LR 0.005, frozen BN affine; seed 1 |
-| ImageNet-C / ViT-B/16 | 128 | 53.4987 | 49.0547 | first 6/12 MLP GELUs + all LN, LR 0.001, tanh GELU; seed 1 |
+Activation-depth results:
 
-These configurations use the LRs and normalization choices shown above;
-the ordered depth sweep uses fixed LR 0.0025 and frozen normalization affine values.
-The complete overview is in [benchmark_summary.csv](results/benchmark_summary.csv).
+![Activation-depth results](results/depth_sweep_measured.png)
 
-- [ImageNet architecture/settings comparisons](docs/RESULTS.md#imagenet-c-architecture-and-settings-comparisons):
-  separate shuffled-stream runs, including joint LayerNorm, exact/tanh GELU,
-  and declared optimizer/LR variants.
-- [CIFAR-C results](docs/RESULTS.md#cifar-c): WRN-28-10 on CIFAR-10-C and
-  WRN-40-2 on CIFAR-100-C, including batch-size 4.
-- [Result files](results/README.md): raw JSONs, per-corruption errors,
-  layer manifests, and summary tables.
-- [Additional configurations](docs/RESULTS.md#additional-resnet-50-configurations):
-  residual-output adaptation and shuffled depth results.
+[Result tables and paper references](docs/RESULTS.md) ·
+[Summary CSV](results/benchmark_summary.csv)
 
 ## Citation and licenses
 

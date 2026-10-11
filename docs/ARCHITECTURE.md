@@ -21,8 +21,7 @@ Original `ln/lp/lb` flags concern activation vectors, rather than LayerNorm;
 ## ResNet-50: independent ReLU call sites
 
 The torchvision ResNet-50 has sixteen bottlenecks, each reusing one ReLU three
-times. Counting modules would give seventeen ReLUs including the stem, which
-does not implement the 49-call depth. `split_resnet_calls` in
+times: 49 calls including the stem. `split_resnet_calls` in
 `actta/architecture_audit.py` gives each bottleneck independent
 `relu1`, `relu2`, and `relu3` call sites without changing its forward computation.
 Selection follows stem → layer1 → layer2 → layer3 → layer4, and relu1/2/3
@@ -37,17 +36,15 @@ within each bottleneck.
 | 100% | 49 / 49 | 100% | `model.layer4.2.relu3` | 68,160 |
 
 At 50%, select the stem, all nine calls in layer1, all twelve in layer2,
-and all three in `layer3.0`. Counts 13/25/38/49 come from archived commands;
-the nominal 75% command uses **38**, rather than recalculating its count.
+and all three in `layer3.0`. The selected counts are 13/25/38/49.
 The 10% YAML selects five calls through
 `model.layer1.1.relu1`. Full measured path lists are in
 [the layer manifest](../results/depth_sweep_layer_manifest.csv).
 
-AcTTA freezes BN affine values but uses target-batch statistics. Its zero point
-retains these statistics with no optimizer, unlike Source inference with stored
-checkpoint statistics. The separately labeled `audit_resnet50_legacy_nesterov.yaml`
-diagnostic has stem plus sixteen residual-output ReLUs (17 effective modules,
-45,504 trainable values); it is not the 50% prefix.
+AcTTA freezes BN affine values and uses target-batch statistics. At zero depth,
+these statistics are retained without an optimizer. Source uses checkpoint
+running statistics. `audit_resnet50_legacy_nesterov.yaml` selects the stem
+plus sixteen residual-output ReLUs (17 modules, 45,504 trainable values).
 
 ## ViT-B/16: MLP GELUs
 
@@ -82,16 +79,13 @@ scaled-dot-product attention. See [runtime settings](../results/architecture_run
 
 ## GELU and zero initialization
 
-The pretrained checkpoint uses exact `nn.GELU(approximate="none")`; original
-research GS2 computes the explicit tanh approximation. The release preserves
-that computation as `gelu_approximation: tanh`. Zero vectors preserve tanh
-GELU, but do not exactly preserve the checkpoint's original exact GELU.
-Unselected activations keep checkpoint GELU. The zero-depth ViT keeps exact
-GELU throughout.
+The checkpoint uses exact `nn.GELU(approximate="none")`. Configurations with
+`gelu_approximation: tanh` use tanh GELU in selected blocks; zero activation
+vectors recover that tanh function. Unselected blocks and zero-depth ViT use
+the checkpoint's exact GELU.
 
-`audit_vit_b16_blocks6_joint_ln_exact_gelu.yaml` supplies an explicit exact-GELU
-alternative that satisfies the paper's zero-initialization identity condition.
-Results for the tanh and exact variants are reported separately.
+`audit_vit_b16_blocks6_joint_ln_exact_gelu.yaml` uses exact GELU, including at
+zero initialization. Results for both variants are in [RESULTS.md](RESULTS.md).
 
 ## Depth and main profiles
 
@@ -111,4 +105,3 @@ Other objectives can select normalization parameters differently. Original
 SAR/DeYO collectors exclude ViT blocks 9–11 and RN50 layer4; their literal
 name filters leave the wrapped final `model.norm` selected. See
 [the objective-specific record](../results/architecture_norm_selection_by_objective.json).
-The TENT parameter counts above do not generalize to every objective.
