@@ -22,12 +22,12 @@ Paper reference: [Table 4](https://arxiv.org/html/2603.26096v1#S4.T4).
 | 75% | 64.6400 | 63.45 | 57.8107 | 57.81 |
 | 100% | 64.0440 | 63.47 | 65.8427 | 65.84 |
 
-![Measured activation-depth curves](../results/depth_sweep_measured.png)
+![Measured activation-depth curves](../code/results/depth_sweep_measured.png)
 
-Files: [raw runs](../results/depth_sweep_runs/),
-[summary CSV](../results/depth_sweep_summary.csv),
-[complete selected-layer manifest](../results/depth_sweep_layer_manifest.csv),
-[per-corruption results](../results/depth_sweep_per_corruption.csv).
+Files: [raw runs](../code/results/depth_sweep_runs),
+[summary CSV](../code/results/depth_sweep_summary.csv),
+[complete selected-layer manifest](../code/results/depth_sweep_layer_manifest.csv),
+[per-corruption results](../code/results/depth_sweep_per_corruption.csv).
 
 ## ImageNet-C architecture and settings comparisons
 
@@ -52,10 +52,10 @@ Paper reference: [Table 5](https://arxiv.org/html/2603.26096v1#S4.T5).
 | ViT AcTTA, 6 blocks + all LN, LR 0.001, exact GELU, standard SGD | 49.8147 | 51.79 |
 | ViT AcTTA, 6 blocks + all LN, LR 0.00025, tanh GELU | 53.4707 | 51.79 |
 
-Files: [raw runs](../results/architecture_runs/),
-[summary CSV](../results/architecture_audit_summary.csv),
-[layer manifest](../results/architecture_layer_manifest.csv),
-[per-corruption results](../results/architecture_per_corruption.csv).
+Files: [raw runs](../code/results/architecture_runs),
+[summary CSV](../code/results/architecture_audit_summary.csv),
+[layer manifest](../code/results/architecture_layer_manifest.csv),
+[per-corruption results](../code/results/architecture_per_corruption.csv).
 
 ## CIFAR-C
 
@@ -76,9 +76,9 @@ WRN28 adapts `block1`; WRN40 adapts `block1` and `block2`.
 | CIFAR-100-C / BS4 | TENT | 1 | 57.1500 | 57.35 |
 | CIFAR-100-C / BS4 | AcTTA-TENT | 1 | 54.8673 | 55.03 |
 
-Files: [raw runs](../results/gpu2_runs/),
-[summary CSV](../results/gpu2_reproduction_summary.csv),
-[per-corruption errors](../results/gpu2_per_corruption.csv).
+Files: [raw runs](../code/results/gpu2_runs),
+[summary CSV](../code/results/gpu2_reproduction_summary.csv),
+[per-corruption errors](../code/results/gpu2_per_corruption.csv).
 
 ## Additional ResNet-50 configurations
 
@@ -107,6 +107,6 @@ Nesterov=True, and frozen BN affine values. Selected call counts are
 | 75% | 64.6653 |
 | 100% | 64.1520 |
 
-Files: [residual-output configuration runs](../results/imagenet_runs/),
-[shuffled depth runs](../results/depth_sweep_shuffled_pilot_runs/),
-and [summary CSV](../results/historical_results.csv).
+Files: [residual-output configuration runs](../code/results/imagenet_runs),
+[shuffled depth runs](../code/results/depth_sweep_shuffled_pilot_runs),
+and [summary CSV](../code/results/historical_results.csv).

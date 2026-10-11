@@ -1,6 +1,7 @@
 # Setup and execution
 
-Run commands from the repository root. Evaluators support Source, TENT, and
+Benchmark commands run from `code/`. Setup below starts at the repository root.
+Evaluators support Source, TENT, and
 AcTTA_TENT. `python tools/run_suite.py --help` lists suite options.
 
 ## Environment
@@ -8,6 +9,7 @@ AcTTA_TENT. `python tools/run_suite.py --help` lists suite options.
 Install the **Linux x86_64 Conda environment** and pinned Python requirements:
 
 ```bash
+cd code
 conda create --name actta --file environment-conda-linux-64.lock.txt --yes
 conda activate actta
 python -m pip install -r requirements-depth-sweep.txt -r requirements-conda-extras.lock.txt

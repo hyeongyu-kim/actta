@@ -22,6 +22,7 @@ Activation parameterization ([Figure 1](https://arxiv.org/html/2603.26096v1#S3.F
 Linux x86_64 · Python 3.12.2 · PyTorch 2.2.1 · CUDA 12.1 · timm 1.0.15.
 
 ```bash
+cd code
 conda create --name actta --file environment-conda-linux-64.lock.txt --yes
 conda activate actta
 python -m pip install -r requirements-depth-sweep.txt -r requirements-conda-extras.lock.txt
@@ -47,9 +48,11 @@ ViT-B/16 adapts the first 6 MLP GELUs. The joint-LN ViT configuration also
 adapts all 25 LayerNorms. See [Architecture settings](docs/ARCHITECTURE.md).
 
 Reference implementations for ETA/EATA, SAR, ROID, CMF, and DeYO are in
-[reference/methods](reference/methods/).
+[reference/methods](code/reference/methods).
 
 ## Run
+
+Run commands from `code/`.
 
 ImageNet-C depth sweep:
 
@@ -90,10 +93,10 @@ seed 1. Configurations are listed above.
 
 Activation-depth results:
 
-![Activation-depth results](results/depth_sweep_measured.png)
+![Activation-depth results](code/results/depth_sweep_measured.png)
 
 [Result tables and paper references](docs/RESULTS.md) ·
-[Summary CSV](results/benchmark_summary.csv)
+[Summary CSV](code/results/benchmark_summary.csv)
 
 ## Citation and licenses
 
@@ -107,6 +110,6 @@ Activation-depth results:
 ```
 
 Code uses the [MIT license](LICENSE), with upstream notices retained in
-[THIRD_PARTY.md](THIRD_PARTY.md). The existing project website (`index.html`
+[THIRD_PARTY.md](docs/THIRD_PARTY.md). The project website (`index.html`
 and `static/`) retains its
 [Creative Commons Attribution-ShareAlike 4.0 license](https://creativecommons.org/licenses/by-sa/4.0/).

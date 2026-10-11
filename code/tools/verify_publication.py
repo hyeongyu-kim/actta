@@ -7,8 +7,8 @@ import sys
 
 
 def main():
-    root = Path(__file__).resolve().parents[1]
-    manifest = json.loads((root / "results/publication_manifest.json").read_text())
+    root = Path(__file__).resolve().parents[2]
+    manifest = json.loads((root / "code/results/publication_manifest.json").read_text())
     failures = []
     for entry in manifest["files"]:
         path = root / entry["path"]

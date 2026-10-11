@@ -24,5 +24,5 @@ affine values.
 | `audit_vit_b16_blocks6_joint_ln_archived_lr.yaml` | Joint LN with tanh GELU, LR 0.00025 |
 
 The ordered depth directory also contains `d010` configurations. See
-[layer selection](../docs/ARCHITECTURE.md) for exact paths and parameter counts.
-Suite commands are in [the reproduction guide](../docs/REPRODUCIBILITY.md).
+[layer selection](../../docs/ARCHITECTURE.md) for exact paths and parameter counts.
+Suite commands are in [the reproduction guide](../../docs/REPRODUCIBILITY.md).

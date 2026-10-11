@@ -1,7 +1,7 @@
 # Result files
 
-See [results](../docs/RESULTS.md) for error tables and
-[architecture settings](../docs/ARCHITECTURE.md) for activation selection.
+See [results](../../docs/RESULTS.md) for error tables and
+[architecture settings](../../docs/ARCHITECTURE.md) for activation selection.
 
 | Profile | Raw JSON directory | Summary |
 |---|---|---|
@@ -28,4 +28,4 @@ contains file checksums; `reporting_manifest.json` records plotting/reporting
 files and the original plotter path under `reference/reporting_v1/`.
 
 Regenerate summaries and figures with
-[the documented commands](../docs/REPRODUCIBILITY.md#output-checks-and-aggregation).
+[the documented commands](../../docs/REPRODUCIBILITY.md#output-checks-and-aggregation).

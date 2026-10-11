@@ -39,7 +39,7 @@ At 50%, select the stem, all nine calls in layer1, all twelve in layer2,
 and all three in `layer3.0`. The selected counts are 13/25/38/49.
 The 10% YAML selects five calls through
 `model.layer1.1.relu1`. Full measured path lists are in
-[the layer manifest](../results/depth_sweep_layer_manifest.csv).
+[the layer manifest](../code/results/depth_sweep_layer_manifest.csv).
 
 AcTTA freezes BN affine values and uses target-batch statistics. At zero depth,
 these statistics are retained without an optimizer. Source uses checkpoint
@@ -75,7 +75,7 @@ weights, classifier, and convolutional weights stay frozen. TENT updates only
 normalization affine values: 53,120 for ResNet and 38,400 for ViT.
 
 All ViT dropout probabilities are zero; measured attention uses fused
-scaled-dot-product attention. See [runtime settings](../results/architecture_runtime_settings.json).
+scaled-dot-product attention. See [runtime settings](../code/results/architecture_runtime_settings.json).
 
 ## GELU and zero initialization
 
@@ -104,4 +104,4 @@ affine values; the ViT main configuration jointly adapts all LayerNorms.
 Other objectives can select normalization parameters differently. Original
 SAR/DeYO collectors exclude ViT blocks 9–11 and RN50 layer4; their literal
 name filters leave the wrapped final `model.norm` selected. See
-[the objective-specific record](../results/architecture_norm_selection_by_objective.json).
+[the objective-specific record](../code/results/architecture_norm_selection_by_objective.json).

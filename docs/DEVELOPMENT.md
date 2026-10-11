@@ -1,5 +1,10 @@
 # Repository layout and maintenance
 
+`code/` contains benchmark code, configurations, and results. `docs/` contains
+documentation. `index.html` and `static/` provide the project website.
+
+Benchmark paths below are relative to `code/`.
+
 | Path | Responsibility |
 |---|---|
 | `actta/activation.py` | GS2 activation and activation replacement |
@@ -9,23 +14,22 @@
 | `actta/architecture_audit.py` | ResNet call splitting, ViT loading, activation/LN selection |
 | `actta/depth_sweep.py` | Depth counts and frozen-normalization depth adapter |
 | `evaluate*.py` | Dataset-specific evaluation and raw JSON output |
-| `configs/` | Complete experiment YAMLs; see the [configuration index](../configs/README.md) |
+| `configs/` | Complete experiment YAMLs; see the [configuration index](../code/configs/README.md) |
 | `scripts/` | Experiment suites and their aggregation commands |
 | `tools/` | Suite launcher, result summaries, plots, and development checks |
 | `tests/` | Activation, architecture, adaptation, and launcher tests |
-| `results/` | Recorded results; see the [file index](../results/README.md) |
+| `results/` | Recorded results; see the [file index](../code/results/README.md) |
 | `reference/`, `vendor/` | Original source, ImageNet metadata, and upstream model implementations |
-| `docs/` | Setup, settings, results, and maintenance notes |
-| `index.html`, `static/` | Project website |
 
 ## Run a suite
 
 `tools/run_suite.py` resolves input/output paths relative to the calling
-directory and runs the existing suite script from the repository root. It uses
+directory and runs the existing suite script from `code/`. It uses
 the current Python interpreter, or `ACTTA_PYTHON` when set, and requires a new
 or empty output directory.
 
 ```bash
+cd code
 python tools/run_suite.py imagenet-depth \
   --data-root /path/to/ImageNet-C \
   --resnet-checkpoint /path/to/resnet50-0676ba61.pth \
